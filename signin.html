@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookly - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ensure background opacity effect */
+        .auth-bg-overlay {
+            background: rgba(255, 255, 255, 0.5); /* semi-white overlay */
+            backdrop-filter: blur(5px);
+        }
+
+        /* Bigger, visible placeholders with brown color */
+        .input-field::placeholder {
+            font-size: 1rem;
+            color: #4A2C2A; 
+            opacity: 1;
+		}
+
+
+        /* Highlight errors */
+        .input-error {
+            border-bottom-color: red !important;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Move the brown semicircle decoration upward */
+        .auth-form-decoration {
+            transform: translateX(-80%) translateY(-75%) !important;
+        }
+		
+		
+    .auth-submit-btn {
+        background-color: #4A2C2A;
+    }
+    .auth-submit-btn:hover {
+        background-color: #3a2120;
+    }
+    .auth-form-decoration {
+        background-color: #4A2C2A !important;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="auth-page-container">
+        <div class="auth-bg-image" style="background-image: url('back2.jpg');"></div>
+        <div class="auth-bg-overlay"></div>
+
+        <div class="auth-form-container">
+            <div class="auth-form-decoration"></div>
+            <div class="auth-form-content">
+                <h1 style = "margin-left : 8rem">Sign In</h1>
+                <form class="auth-form" id="signupForm" action="index.html" method="post" novalidate>
+                    <div class="input-field-wrapper">
+                        <span class="icon">👤</span>
+                        <input type="text" name="name" id="name" class="input-field" placeholder="Name" required>
+                    </div>
+                    <div id="nameError" class="error-message"></div>
+
+                    <div class="input-field-wrapper">
+                        <span class="icon" style = "color : #4A2C2A">@</span>
+                        <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
+                    </div>
+                    <div id="emailError" class="error-message"></div>
+
+                    <div class="input-field-wrapper">
+                        <span class="icon">🔒</span>
+                        <input type="password" name="password" id="password" class="input-field" placeholder="Password" required minlength="6">
+                    </div>
+                    <div id="passwordError" class="error-message"></div>
+
+                    <div class="auth-options">
+                        <a href="#" style="color : #4A2C2A">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn" onclick="index.html" >SIGN IN</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <script>
+        const form = document.getElementById('signupForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let valid = true;
+
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+            document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const password = form.password.value.trim();
+            
+            // Name validation
+            if (name === '') {
+                document.getElementById('nameError').textContent = 'Name is required.';
+                form.name.classList.add('input-error');
+                valid = false;
+            }
+
+            // Email validation (simple regex)
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                form.email.classList.add('input-error');
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Enter a valid email address.';
+                form.email.classList.add('input-error');
+                valid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+                form.password.classList.add('input-error');
+                valid = false;
+            }
+
+
+            // Final Submission
+            if (valid) {
+                alert('Registration Successful!');
+                form.reset();
+            }
+        });
+    </script>-->
+</body>
+</html>
