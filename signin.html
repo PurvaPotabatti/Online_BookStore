@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bookly - Sign Up</title>
+    <title>Bookly - Sign In</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Ensure background opacity effect */
@@ -56,87 +56,232 @@
         <div class="auth-form-container">
             <div class="auth-form-decoration"></div>
             <div class="auth-form-content">
-                <h1 style = "margin-left : 8rem">Sign In</h1>
-                <form class="auth-form" id="signupForm" action="index.html" method="post" novalidate>
-                    <div class="input-field-wrapper">
-                        <span class="icon">👤</span>
-                        <input type="text" name="name" id="name" class="input-field" placeholder="Name" required>
-                    </div>
-                    <div id="nameError" class="error-message"></div>
+                                 <h1 id="authTitle" style = "margin-left : 8rem">Sign In</h1>
+                                 <form class="auth-form" id="signinForm" novalidate>
+                     <div class="input-field-wrapper">
+                         <span class="icon">👤</span>
+                         <input type="text" name="name" id="name" class="input-field" placeholder="Name" required>
+                     </div>
+                     <div id="nameError" class="error-message"></div>
 
-                    <div class="input-field-wrapper">
-                        <span class="icon" style = "color : #4A2C2A">@</span>
-                        <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
-                    </div>
-                    <div id="emailError" class="error-message"></div>
+                     <div class="input-field-wrapper">
+                         <span class="icon" style = "color : #4A2C2A">@</span>
+                         <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
+                     </div>
+                     <div id="emailError" class="error-message"></div>
 
-                    <div class="input-field-wrapper">
-                        <span class="icon">🔒</span>
-                        <input type="password" name="password" id="password" class="input-field" placeholder="Password" required minlength="6">
-                    </div>
-                    <div id="passwordError" class="error-message"></div>
+                     <div class="input-field-wrapper">
+                         <span class="icon">🔒</span>
+                         <input type="password" name="password" id="password" class="input-field" placeholder="Password" required minlength="8">
+                     </div>
+                     <div id="passwordError" class="error-message"></div>
+                     <div class="password-requirements" style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px;">
+                         <strong>Password must contain:</strong><br>
+                         • At least 8 characters<br>
+                         • One capital letter (A-Z)<br>
+                         • One small letter (a-z)<br>
+                         • One number (0-9)<br>
+                         • One special character (!@#$%^&*)
+                     </div>
 
-                    <div class="auth-options">
-                        <a href="#" style="color : #4A2C2A">Forgot password?</a>
-                    </div>
+                     <div class="auth-options">
+                         <a href="#" style="color : #4A2C2A">Forgot password?</a>
+                     </div>
 
-                    <button type="submit" class="auth-submit-btn" onclick="index.html" >SIGN IN</button>
+                     <button type="submit" class="auth-submit-btn">SIGN IN</button>
 
-                </form>
+                 </form>
+                 
+                 <div class="auth-footer" style="text-align: center; margin-top: 2rem; color: #4A2C2A;">
+                     <p>Don't have an account? <a href="#" onclick="showSignUpForm()" style="color: #4A2C2A; text-decoration: underline; font-weight: 600;">Sign Up</a></p>
+                 </div>
             </div>
         </div>
     </div>
 
-    <!--
-    <script>
-        const form = document.getElementById('signupForm');
+         <script>
+         // Toggle between Sign In and Sign Up forms
+         function showSignUpForm() {
+             const authTitle = document.getElementById('authTitle');
+             const form = document.getElementById('signinForm');
+             const authFooter = document.querySelector('.auth-footer');
+             
+             authTitle.textContent = 'Sign Up';
+             form.id = 'signupForm';
+             
+             // Update footer text
+             authFooter.innerHTML = '<p>Already have an account? <a href="#" onclick="showSignInForm()" style="color: #4A2C2A; text-decoration: underline; font-weight: 600;">Sign In</a></p>';
+             
+             // Update form validation for sign up
+             form.removeEventListener('submit', handleSignIn);
+             form.addEventListener('submit', handleSignUp);
+         }
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            let valid = true;
+         function showSignInForm() {
+             const authTitle = document.getElementById('authTitle');
+             const form = document.getElementById('signupForm');
+             const authFooter = document.querySelector('.auth-footer');
+             
+             authTitle.textContent = 'Sign In';
+             form.id = 'signinForm';
+             
+             // Update footer text
+             authFooter.innerHTML = '<p>Don\'t have an account? <a href="#" onclick="showSignUpForm()" style="color: #4A2C2A; text-decoration: underline; font-weight: 600;">Sign Up</a></p>';
+             
+             // Update form validation for sign in
+             form.removeEventListener('submit', handleSignUp);
+             form.addEventListener('submit', handleSignIn);
+         }
 
-            // Clear previous errors
-            document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
-            document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
+         // Handle Sign In form submission
+         function handleSignIn(event) {
+             event.preventDefault();
+             
+             let valid = true;
+             const form = event.target;
 
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const password = form.password.value.trim();
-            
-            // Name validation
-            if (name === '') {
-                document.getElementById('nameError').textContent = 'Name is required.';
-                form.name.classList.add('input-error');
-                valid = false;
-            }
+             // Clear previous errors
+             document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+             document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
 
-            // Email validation (simple regex)
-            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-            if (email === '') {
-                document.getElementById('emailError').textContent = 'Email is required.';
-                form.email.classList.add('input-error');
-                valid = false;
-            } else if (!emailPattern.test(email)) {
-                document.getElementById('emailError').textContent = 'Enter a valid email address.';
-                form.email.classList.add('input-error');
-                valid = false;
-            }
+             const name = form.name.value.trim();
+             const email = form.email.value.trim();
+             const password = form.password.value.trim();
+             
+             // Name validation
+             if (name === '') {
+                 document.getElementById('nameError').textContent = 'Name is required.';
+                 form.name.classList.add('input-error');
+                 valid = false;
+             }
 
-            // Password validation
-            if (password.length < 6) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
-                form.password.classList.add('input-error');
-                valid = false;
-            }
+             // Email validation (must end with @gmail.com)
+             if (email === '') {
+                 document.getElementById('emailError').textContent = 'Email is required.';
+                 form.email.classList.add('input-error');
+                 valid = false;
+             } else if (!email.endsWith('@gmail.com')) {
+                 document.getElementById('emailError').textContent = 'Email must end with @gmail.com';
+                 form.email.classList.add('input-error');
+                 valid = false;
+             }
 
+             // Password validation
+             if (password.length < 8) {
+                 document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+                 form.password.classList.add('input-error');
+                 valid = false;
+             } else {
+                 // Enhanced password validation
+                 const hasCapital = /[A-Z]/.test(password);
+                 const hasSmall = /[a-z]/.test(password);
+                 const hasNumber = /[0-9]/.test(password);
+                 const hasSpecial = /[!@#$%^&*]/.test(password);
+                 
+                 if (!hasCapital || !hasSmall || !hasNumber || !hasSpecial) {
+                     document.getElementById('passwordError').textContent = 'Password must contain capital letter, small letter, number, and special character.';
+                     form.password.classList.add('input-error');
+                     valid = false;
+                 }
+             }
 
-            // Final Submission
-            if (valid) {
-                alert('Registration Successful!');
-                form.reset();
-            }
-        });
-    </script>-->
+             // Final Submission
+             if (valid) {
+                 // Store user info in localStorage (for demo purposes)
+                 const userInfo = {
+                     name: name,
+                     email: email,
+                     isLoggedIn: true,
+                     loginTime: new Date().toISOString()
+                 };
+                 localStorage.setItem('booklyUser', JSON.stringify(userInfo));
+                 
+                 alert('Sign In Successful! Welcome back, ' + name + '!');
+                 
+                 // Redirect to homepage after successful sign-in
+                 setTimeout(() => {
+                     window.location.href = 'index.html';
+                 }, 1000);
+             }
+         }
+
+         // Handle Sign Up form submission
+         function handleSignUp(event) {
+             event.preventDefault();
+             
+             let valid = true;
+             const form = event.target;
+
+             // Clear previous errors
+             document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+             document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
+
+             const name = form.name.value.trim();
+             const email = form.email.value.trim();
+             const password = form.password.value.trim();
+             
+             // Name validation
+             if (name === '') {
+                 document.getElementById('nameError').textContent = 'Name is required.';
+                 form.name.classList.add('input-error');
+                 valid = false;
+             }
+
+             // Email validation (must end with @gmail.com)
+             if (email === '') {
+                 document.getElementById('emailError').textContent = 'Email is required.';
+                 form.email.classList.add('input-error');
+                 valid = false;
+             } else if (!email.endsWith('@gmail.com')) {
+                 document.getElementById('emailError').textContent = 'Email must end with @gmail.com';
+                 form.email.classList.add('input-error');
+                 valid = false;
+             }
+
+             // Password validation
+             if (password.length < 8) {
+                 document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+                 form.password.classList.add('input-error');
+                 valid = false;
+             } else {
+                 // Enhanced password validation
+                 const hasCapital = /[A-Z]/.test(password);
+                 const hasSmall = /[a-z]/.test(password);
+                 const hasNumber = /[0-9]/.test(password);
+                 const hasSpecial = /[!@#$%^&*]/.test(password);
+                 
+                 if (!hasCapital || !hasSmall || !hasNumber || !hasSpecial) {
+                     document.getElementById('passwordError').textContent = 'Password must contain capital letter, small letter, number, and special character.';
+                     form.password.classList.add('input-error');
+                     valid = false;
+                 }
+             }
+
+             // Final Submission
+             if (valid) {
+                 // Store user info in localStorage (for demo purposes)
+                 const userInfo = {
+                     name: name,
+                     email: email,
+                     isLoggedIn: true,
+                     loginTime: new Date().toISOString()
+                 };
+                 localStorage.setItem('booklyUser', JSON.stringify(userInfo));
+                 
+                 alert('Account Created Successfully! Welcome to Bookly, ' + name + '!');
+                 
+                 // Redirect to homepage after successful sign-up
+                 setTimeout(() => {
+                     window.location.href = 'index.html';
+                 }, 1000);
+             }
+         }
+
+         // Initialize form with sign-in handler
+         document.addEventListener('DOMContentLoaded', function() {
+             const form = document.getElementById('signinForm');
+             form.addEventListener('submit', handleSignIn);
+         });
+     </script>
 </body>
 </html>

@@ -17,11 +17,11 @@
             <div class="relative-content">
                 <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
                 <nav class="sidebar-nav">
-                    <a href="fiction.html" >Fiction</a>
+                                         <a href="category-fiction.html">Fiction</a>
                     <a href="non-fiction.html" class="active">Non-Fiction</a>
                     <a href="children.html" >Children</a>
                     <a href="comics.html">Comics</a>
-                    <a href="#">Technology</a>
+                                         <a href="technology.html">Technology</a>
                 </nav>
             </div>
         </aside>
@@ -29,13 +29,14 @@
             <header class="header">
                 <div class="header-top">
                     <nav class="header-nav">
+                        <a href="index.html">HOME</a>
                         <a href="help.html">HELP</a>
                         <a href="about.html">ABOUT US</a>
                         <a href="contact.html">CONTACT</a>
                         <a href="faq.html">FAQ'S</a>
                     </nav>
                     <div class="header-actions">
-                        <a href="#" class="header-button">
+                        <a href="cart.html" class="header-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="9" cy="21" r="1"></circle>
                                 <circle cx="20" cy="21" r="1"></circle>
@@ -43,10 +44,10 @@
                             </svg>
                             <span>CART</span>
                         </a>
-                        <a href="auth.html" class="header-button">
-                            <span>REGISTER</span>
-                        </a>
-                        <a href="auth.html" class="profile-button">
+                                                 <a href="signin.html" class="header-button">
+                             <span>REGISTER</span>
+                         </a>
+                         <a href="signin.html" class="profile-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
@@ -65,100 +66,193 @@
             </header>
             <div class="page-content">
                 <div class="category-filters">
-                    <a href="fiction.html" class="filter-link active">All</a>
+                    <a href="non-fiction.html" class="filter-link active">All</a>
                     <a href="non_fiction_newspaper.html" class="filter-link">Newspaper</a>
                     <a href="non_fiction_magazine.html" class="filter-link">Magazines</a>
                     <a href="non_fiction_biography.html" class="filter-link">Biography</a>
                     <a href="non_fiction_autobiography.html" class="filter-link">AutoBiography</a>
                 </div>
                 <div class="book-grid">
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="times_of_india.jpg" alt="The Times of India" class="book-image" />
-                        </div>
-                        <h3>The Times of India</h3>
-                        <p>₹ 999/year</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="hindu.jpg" alt="The Hindu" class="book-image" />
-                        </div>
-                        <h3>The Hindu</h3>
-                        <p>₹ 849/year</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="hindustan.jpg" alt="Hindustan Times" class="book-image" />
-                        </div>
-                        <h3>Hidustan Times</h3>
-                        <p>₹ 899/year</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="geo.jpg" alt="National Geographic" class="book-image" />
-                        </div>
-                        <h3>National Geographic</h3>
-                        <p>₹ 120/month</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="digest.jpg" alt="Reader's Digest" class="book-image" />
-                        </div>
-                        <h3>Reader's Digest</h3>
-                        <p>₹ 100/month</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="time.jpg" alt="TIME Magazine" class="book-image" />
-                        </div>
-                        <h3>TIME Magazine</h3>
-                        <p>₹ 150/month</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="steve.jpg" alt="Steve Jobs" class="book-image" />
-                        </div>
-                        <h3>Steve Jobs</h3>
-                        <p>₹ 599</p>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="becoming.jpg" alt="Becoming" class="book-image" />
-                        </div>
-                        <h3>Becoming</h3>
-                        <p>₹ 549</p>
-                    </div>
+                                         <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="times_of_india.jpg" alt="The Times of India" class="book-image" />
+                         </div>
+                         <h3>The Times of India</h3>
+                         <p>₹ 999/year</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('The Times of India', 999, 'times_of_india.jpg')">Add to Cart</button>
+                     </div>
+                                         <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="hindu.jpg" alt="The Hindu" class="book-image" />
+                         </div>
+                         <h3>The Hindu</h3>
+                         <p>₹ 849/year</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('The Hindu', 849, 'hindu.jpg')">Add to Cart</button>
+                     </div>
+                     <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="hindustan.jpg" alt="Hindustan Times" class="book-image" />
+                         </div>
+                         <h3>Hindustan Times</h3>
+                         <p>₹ 899/year</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Hindustan Times', 899, 'hindustan.jpg')">Add to Cart</button>
+                     </div>
+                     <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="geo.jpg" alt="National Geographic" class="book-image" />
+                         </div>
+                         <h3>National Geographic</h3>
+                         <p>₹ 120/month</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('National Geographic', 120, 'geo.jpg')">Add to Cart</button>
+                     </div>
+                                         <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="digest.jpg" alt="Reader's Digest" class="book-image" />
+                         </div>
+                         <h3>Reader's Digest</h3>
+                         <p>₹ 100/month</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Reader\'s Digest', 100, 'digest.jpg')">Add to Cart</button>
+                     </div>
+                     <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="time.jpg" alt="TIME Magazine" class="book-image" />
+                         </div>
+                         <h3>TIME Magazine</h3>
+                         <p>₹ 150/month</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('TIME Magazine', 150, 'time.jpg')">Add to Cart</button>
+                     </div>
+                     <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="steve.jpg" alt="Steve Jobs" class="book-image" />
+                         </div>
+                         <h3>Steve Jobs</h3>
+                         <p>₹ 599</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Steve Jobs', 599, 'steve.jpg')">Add to Cart</button>
+                     </div>
+                                         <div class="book-card">
+                         <div class="book-image-wrapper">
+                             <img src="becoming.jpg" alt="Becoming" class="book-image" />
+                         </div>
+                         <h3>Becoming</h3>
+                         <p>₹ 549</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Becoming', 549, 'becoming.jpg')">Add to Cart</button>
+                     </div>
 					<div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="elon.jpg" alt="Elon Musk" class="book-image" />
-                        </div>
-                        <h3>Elon Musk</h3>
-                        <p>₹ 499</p>
-                    </div>
+                         <div class="book-image-wrapper">
+                             <img src="elon.jpg" alt="Elon Musk" class="book-image" />
+                         </div>
+                         <h3>Elon Musk</h3>
+                         <p>₹ 499</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Elon Musk', 499, 'elon.jpg')">Add to Cart</button>
+                     </div>
 					<div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="freedom.jpg" alt="Long Walk to Freedom" class="book-image" />
-                        </div>
-                        <h3>Long Walk to Freedom</h3>
-                        <p>₹ 499</p>
-                    </div>
+                         <div class="book-image-wrapper">
+                             <img src="freedom.jpg" alt="Long Walk to Freedom" class="book-image" />
+                         </div>
+                         <h3>Long Walk to Freedom</h3>
+                         <p>₹ 499</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Long Walk to Freedom', 499, 'freedom.jpg')">Add to Cart</button>
+                     </div>
 					<div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="malala.jpg" alt="I Am Malala" class="book-image" />
-                        </div>
-                        <h3>I Am Malala</h3>
-                        <p>₹ 449</p>
-                    </div>
+                         <div class="book-image-wrapper">
+                             <img src="malala.jpg" alt="I Am Malala" class="book-image" />
+                         </div>
+                         <h3>I Am Malala</h3>
+                         <p>₹ 449</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('I Am Malala', 449, 'malala.jpg')">Add to Cart</button>
+                     </div>
 					<div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="wings_of_fire.jpg" alt="Wings of Fire" class="book-image" />
-                        </div>
-                        <h3>Wings of Fire</h3>
-                        <p>₹ 599</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+                         <div class="book-image-wrapper">
+                             <img src="wings_of_fire.jpg" alt="Wings of Fire" class="book-image" />
+                         </div>
+                         <h3>Wings of Fire</h3>
+                         <p>₹ 599</p>
+                         <button class="add-to-cart-btn" onclick="addToCart('Wings of Fire', 599, 'wings_of_fire.jpg')">Add to Cart</button>
+                     </div>
+                                 </div>
+             </div>
+         </main>
+     </div>
+
+     <style>
+         .add-to-cart-btn {
+             background: #4A2C2A;
+             color: white;
+             border: none;
+             padding: 0.75rem 1.5rem;
+             border-radius: 8px;
+             font-weight: 600;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             margin-top: 1rem;
+             width: 100%;
+         }
+         
+         .add-to-cart-btn:hover {
+             background: #3a2120;
+             transform: translateY(-2px);
+             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+         }
+         
+         .cart-notification {
+             position: fixed;
+             top: 20px;
+             right: 20px;
+             background: #4A2C2A;
+             color: white;
+             padding: 1rem 1.5rem;
+             border-radius: 8px;
+             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+             z-index: 1000;
+             transform: translateX(400px);
+             transition: transform 0.3s ease;
+         }
+         
+         .cart-notification.show {
+             transform: translateX(0);
+         }
+     </style>
+
+     <script>
+         function addToCart(title, price, image) {
+             // Create notification
+             const notification = document.createElement('div');
+             notification.className = 'cart-notification';
+             notification.innerHTML = `
+                 <div style="display: flex; align-items: center; gap: 0.5rem;">
+                     <span>✅</span>
+                     <span>${title} added to cart!</span>
+                 </div>
+             `;
+             
+             document.body.appendChild(notification);
+             
+             // Show notification
+             setTimeout(() => {
+                 notification.classList.add('show');
+             }, 100);
+             
+             // Hide notification after 3 seconds
+             setTimeout(() => {
+                 notification.classList.remove('show');
+                 setTimeout(() => {
+                     document.body.removeChild(notification);
+                 }, 300);
+             }, 3000);
+             
+             // Store in localStorage (for cart persistence)
+             const cartItem = {
+                 id: Date.now(),
+                 title: title,
+                 price: price,
+                 image: image,
+                 quantity: 1
+             };
+             
+             let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+             cart.push(cartItem);
+             localStorage.setItem('booklyCart', JSON.stringify(cart));
+         }
+     </script>
 </body>
 </html>
