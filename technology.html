@@ -21,7 +21,7 @@
           <a href="non-fiction.html">Non-Fiction</a>
           <a href="children.html">Children</a>
           <a href="comics.html">Comics</a>
-          <a href="technology.html">Technology</a>
+          <a href="technology.html" class="active">Technology</a>
         </nav>
       </div>
     </aside>
@@ -45,8 +45,8 @@
               </svg>
               <span>CART</span>
             </a>
-                         <a href="signin.html" class="header-button"><span>REGISTER</span></a>
-             <a href="signin.html" class="profile-button">
+            <a href="signin.html" class="header-button"><span>REGISTER</span></a>
+            <a href="signin.html" class="profile-button">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
@@ -60,100 +60,14 @@
           </marquee>
         </div>
         <div class="search-bar">
-          <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" placeholder="search" />
-          <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-          </svg>
-        </div>
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search books..." />
+                <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            </div>
       </header>
 
       <div class="page-content">
-        <div class="book-grid">
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic1.png" alt="AI Superpowers" class="book-image" />
-            </div>
-            <h3>AI Superpowers</h3>
-            <p>₹ 531</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('AI Superpowers', 531, 'techpic1.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic2.png" alt="The Code Book" class="book-image" />
-            </div>
-            <h3>The Code Book</h3>
-            <p>₹ 397</p>
-            <div class="book-rating">⭐⭐⭐☆☆</div> <!-- 3 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('The Code Book', 397, 'techpic2.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic3.png" alt="How the Internet Happened" class="book-image" />
-            </div>
-            <h3>How the Internet Happened</h3>
-            <p>₹ 400</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('How the Internet Happened', 400, 'techpic3.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic4.png" alt="The Shallows" class="book-image" />
-            </div>
-            <h3>The Shallows</h3>
-            <p>₹ 500</p>
-            <div class="book-rating">⭐⭐☆☆☆</div> <!-- 2 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('The Shallows', 500, 'techpic4.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic5.png" alt="Ghost in the Wires" class="book-image" />
-            </div>
-            <h3>Ghost in the Wires</h3>
-            <p>₹ 350</p>
-            <div class="book-rating">⭐⭐☆☆☆</div> <!-- 3 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Ghost in the Wires', 350, 'techpic5.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic8.png" alt="Superintelligence" class="book-image" />
-            </div>
-            <h3>Superintelligence</h3>
-            <p>₹ 450</p>
-            <div class="book-rating">⭐⭐⭐☆☆</div> <!-- 3 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Superintelligence', 450, 'techpic8.png')">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic6.png" alt="Clean Code" class="book-image" />
-            </div>
-            <h3>Clean Code</h3>
-            <p>₹ 670</p>
-            <div class="book-rating">⭐⭐⭐☆☆</div> <!-- 3 stars -->
-          </div>
-
-           <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/techpic7.png" alt="Clean Code" class="book-image" />
-            </div>
-            <h3>The singularity is near</h3>
-            <p>₹ 900</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div>
-
-          </div>
-
-        </div>
+        <div class="book-grid"></div>
       </div>
     </main>
   </div>
@@ -171,13 +85,11 @@
       margin-top: 1rem;
       width: 100%;
     }
-    
     .add-to-cart-btn:hover {
       background: #3a2120;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    
     .cart-notification {
       position: fixed;
       top: 20px;
@@ -191,48 +103,69 @@
       transform: translateX(400px);
       transition: transform 0.3s ease;
     }
-    
     .cart-notification.show {
       transform: translateX(0);
     }
   </style>
 
   <script>
+    const books = [
+      { title: "AI Superpowers", price: 531, image: "techpic1.png", rating: "⭐⭐⭐⭐⭐" },
+      { title: "The Code Book", price: 397, image: "techpic2.png", rating: "⭐⭐⭐☆☆" },
+      { title: "How the Internet Happened", price: 400, image: "techpic3.png", rating: "⭐⭐⭐⭐⭐" },
+      { title: "The Shallows", price: 500, image: "techpic4.png", rating: "⭐⭐☆☆☆" },
+      { title: "Ghost in the Wires", price: 350, image: "techpic5.png", rating: "⭐⭐☆☆☆" },
+      { title: "Superintelligence", price: 450, image: "techpic8.png", rating: "⭐⭐⭐☆☆" },
+      { title: "Clean Code", price: 670, image: "techpic6.png", rating: "⭐⭐⭐☆☆" },
+      { title: "The Singularity is Near", price: 900, image: "techpic7.png", rating: "⭐⭐⭐⭐⭐" }
+    ];
+
+    const bookGrid = document.querySelector(".book-grid");
+    const searchInput = document.querySelector(".search-bar input");
+
+    function renderBooks() {
+      const searchText = searchInput.value.toLowerCase();
+      bookGrid.innerHTML = "";
+      const filteredBooks = books.filter(book =>
+        book.title.toLowerCase().includes(searchText)
+      );
+
+      if(filteredBooks.length === 0){
+        bookGrid.innerHTML = "<p style='grid-column:1/-1; text-align:center; font-weight:bold;'>No books found.</p>";
+      } else {
+        filteredBooks.forEach(book => {
+          const card = document.createElement("div");
+          card.className = "book-card";
+          card.innerHTML = `
+            <div class="book-image-wrapper">
+              <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+            </div>
+            <h3>${book.title}</h3>
+            <p>₹ ${book.price}</p>
+            <div class="book-rating">${book.rating}</div>
+            <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+          `;
+          bookGrid.appendChild(card);
+        });
+      }
+    }
+
+    searchInput.addEventListener("input", renderBooks);
+    renderBooks();
+
     function addToCart(title, price, image) {
-      // Create notification
       const notification = document.createElement('div');
       notification.className = 'cart-notification';
-      notification.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <span>✅</span>
-          <span>${title} added to cart!</span>
-        </div>
-      `;
-      
+      notification.innerHTML = `✅ ${title} added to cart!`;
       document.body.appendChild(notification);
-      
-      // Show notification
-      setTimeout(() => {
-        notification.classList.add('show');
-      }, 100);
-      
-      // Hide notification after 3 seconds
+
+      setTimeout(() => notification.classList.add('show'), 100);
       setTimeout(() => {
         notification.classList.remove('show');
-        setTimeout(() => {
-          document.body.removeChild(notification);
-        }, 300);
+        setTimeout(() => document.body.removeChild(notification), 300);
       }, 3000);
-      
-      // Store in localStorage (for cart persistence)
-      const cartItem = {
-        id: Date.now(),
-        title: title,
-        price: price,
-        image: image,
-        quantity: 1
-      };
-      
+
+      const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
       let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
       cart.push(cartItem);
       localStorage.setItem('booklyCart', JSON.stringify(cart));

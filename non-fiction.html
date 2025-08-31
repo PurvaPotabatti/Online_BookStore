@@ -7,252 +7,179 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="sidebar-decoration">
-                <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
-                    <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
-                </svg>
-            </div>
-            <div class="relative-content">
-                <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
-                <nav class="sidebar-nav">
-                    <a href="category-fiction.html">Fiction</a>
-                    <a href="non-fiction.html" class="active">Non-Fiction</a>
-                    <a href="children.html" >Children</a>
-                    <a href="comics.html">Comics</a>
-                     <a href="technology.html">Technology</a>
+<div class="main-container">
+    <aside class="sidebar">
+        <div class="sidebar-decoration">
+            <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
+                <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
+            </svg>
+        </div>
+        <div class="relative-content">
+            <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
+            <nav class="sidebar-nav">
+                <a href="category-fiction.html">Fiction</a>
+                <a href="non-fiction.html" class="active">Non-Fiction</a>
+                <a href="children.html">Children</a>
+                <a href="comics.html">Comics</a>
+                <a href="technology.html">Technology</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-top">
+                <nav class="header-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="help.html">HELP</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="faq.html">FAQ'S</a>
                 </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="header-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>CART</span>
+                    </a>
+                    <a href="signin.html" class="header-button" id="authButton"><span>REGISTER</span></a>
+                    <a href="signin.html" class="profile-button" id="profileButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </aside>
-        <main class="main-content">
-            <header class="header">
-                <div class="header-top">
-                    <nav class="header-nav">
-                        <a href="index.html">HOME</a>
-                        <a href="help.html">HELP</a>
-                        <a href="about.html">ABOUT US</a>
-                        <a href="contact.html">CONTACT</a>
-                        <a href="faq.html">FAQ'S</a>
-                    </nav>
-                    <div class="header-actions">
-                        <a href="cart.html" class="header-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                            <span>CART</span>
-                        </a>
-                                                 <a href="signin.html" class="header-button">
-                             <span>REGISTER</span>
-                         </a>
-                         <a href="signin.html" class="profile-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="sale-banner">
-                    SALEEEE!!!!!!!SALEEEEEE !!! SALEEEEEEEE
-                </div>
-                <div class="search-bar">
-                    <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="search" />
-                    <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
-                </div>
-            </header>
-            <div class="page-content">
-                <div class="category-filters">
-                    <a href="non-fiction.html" class="filter-link active">All</a>
-                    <a href="non_fiction_newspaper.html" class="filter-link">Newspaper</a>
-                    <a href="non_fiction_magazine.html" class="filter-link">Magazines</a>
-                    <a href="non_fiction_biography.html" class="filter-link">Biography</a>
-                    <a href="non_fiction_autobiography.html" class="filter-link">AutoBiography</a>
-                </div>
-                <div class="book-grid">
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/times_of_india.jpg" alt="The Times of India" class="book-image" />
-                         </div>
-                         <h3>The Times of India</h3>
-                         <p>₹ 999/year</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Times of India', 999, 'times_of_india.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/hindu.jpg" alt="The Hindu" class="book-image" />
-                         </div>
-                         <h3>The Hindu</h3>
-                         <p>₹ 849/year</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Hindu', 849, 'hindu.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/hindustan.jpg" alt="Hindustan Times" class="book-image" />
-                         </div>
-                         <h3>Hindustan Times</h3>
-                         <p>₹ 899/year</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Hindustan Times', 899, 'hindustan.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/geo.jpg" alt="National Geographic" class="book-image" />
-                         </div>
-                         <h3>National Geographic</h3>
-                         <p>₹ 120/month</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('National Geographic', 120, 'geo.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/digest.jpg" alt="Reader's Digest" class="book-image" />
-                         </div>
-                         <h3>Reader's Digest</h3>
-                         <p>₹ 100/month</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Reader\'s Digest', 100, 'digest.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/time.jpg" alt="TIME Magazine" class="book-image" />
-                         </div>
-                         <h3>TIME Magazine</h3>
-                         <p>₹ 150/month</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('TIME Magazine', 150, 'time.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/steve.jpg" alt="Steve Jobs" class="book-image" />
-                         </div>
-                         <h3>Steve Jobs</h3>
-                         <p>₹ 599</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Steve Jobs', 599, 'steve.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/becoming.jpg" alt="Becoming" class="book-image" />
-                         </div>
-                         <h3>Becoming</h3>
-                         <p>₹ 549</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Becoming', 549, 'becoming.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/elon.jpg" alt="Elon Musk" class="book-image" />
-                         </div>
-                         <h3>Elon Musk</h3>
-                         <p>₹ 499</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Elon Musk', 499, 'elon.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/freedom.jpg" alt="Long Walk to Freedom" class="book-image" />
-                         </div>
-                         <h3>Long Walk to Freedom</h3>
-                         <p>₹ 499</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Long Walk to Freedom', 499, 'freedom.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/malala.jpg" alt="I Am Malala" class="book-image" />
-                         </div>
-                         <h3>I Am Malala</h3>
-                         <p>₹ 449</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('I Am Malala', 449, 'malala.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/wings_of_fire.jpg" alt="Wings of Fire" class="book-image" />
-                         </div>
-                         <h3>Wings of Fire</h3>
-                         <p>₹ 599</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Wings of Fire', 599, 'wings_of_fire.jpg')">Add to Cart</button>
-                     </div>
-                                 </div>
-             </div>
-         </main>
-     </div>
 
-     <style>
-         .add-to-cart-btn {
-             background: #4A2C2A;
-             color: white;
-             border: none;
-             padding: 0.75rem 1.5rem;
-             border-radius: 8px;
-             font-weight: 600;
-             cursor: pointer;
-             transition: all 0.3s ease;
-             margin-top: 1rem;
-             width: 100%;
-         }
-         
-         .add-to-cart-btn:hover {
-             background: #3a2120;
-             transform: translateY(-2px);
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-         }
-         
-         .cart-notification {
-             position: fixed;
-             top: 20px;
-             right: 20px;
-             background: #4A2C2A;
-             color: white;
-             padding: 1rem 1.5rem;
-             border-radius: 8px;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-             z-index: 1000;
-             transform: translateX(400px);
-             transition: transform 0.3s ease;
-         }
-         
-         .cart-notification.show {
-             transform: translateX(0);
-         }
-     </style>
+            <div class="sale-banner">
+                <marquee behavior="scroll" direction="left" scrollamount="6">
+                    🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
+                </marquee>
+            </div>
 
-     <script>
-         function addToCart(title, price, image) {
-             // Create notification
-             const notification = document.createElement('div');
-             notification.className = 'cart-notification';
-             notification.innerHTML = `
-                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                     <span>✅</span>
-                     <span>${title} added to cart!</span>
-                 </div>
-             `;
-             
-             document.body.appendChild(notification);
-             
-             // Show notification
-             setTimeout(() => {
-                 notification.classList.add('show');
-             }, 100);
-             
-             // Hide notification after 3 seconds
-             setTimeout(() => {
-                 notification.classList.remove('show');
-                 setTimeout(() => {
-                     document.body.removeChild(notification);
-                 }, 300);
-             }, 3000);
-             
-             // Store in localStorage (for cart persistence)
-             const cartItem = {
-                 id: Date.now(),
-                 title: title,
-                 price: price,
-                 image: image,
-                 quantity: 1
-             };
-             
-             let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
-             cart.push(cartItem);
-             localStorage.setItem('booklyCart', JSON.stringify(cart));
-         }
-     </script>
+            <div class="search-bar">
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search books..." />
+                <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <div class="category-filters">
+                <a href="#" class="filter-link active" data-category="all">All</a>
+                <a href="#" class="filter-link" data-category="newspaper">Newspaper</a>
+                <a href="#" class="filter-link" data-category="magazines">Magazines</a>
+                <a href="#" class="filter-link" data-category="biography">Biography</a>
+                <a href="#" class="filter-link" data-category="autobiography">AutoBiography</a>
+            </div>
+
+            <div class="book-grid" id="bookGrid">
+                <!-- Dynamic book cards rendered by JS -->
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+const books = [
+    { title: "The Times of India", price: 999, image: "times_of_india.jpg", category: "newspaper" },
+    { title: "The Hindu", price: 849, image: "hindu.jpg", category: "newspaper" },
+    { title: "Hindustan Times", price: 899, image: "hindustan.jpg", category: "newspaper" },
+    { title: "National Geographic", price: 120, image: "geo.jpg", category: "magazines" },
+    { title: "Reader's Digest", price: 100, image: "digest.jpg", category: "magazines" },
+    { title: "TIME Magazine", price: 150, image: "time.jpg", category: "magazines" },
+    { title: "Steve Jobs", price: 599, image: "steve.jpg", category: "biography" },
+    { title: "Becoming", price: 549, image: "becoming.jpg", category: "biography" },
+    { title: "Elon Musk", price: 499, image: "elon.jpg", category: "biography" },
+    { title: "Long Walk to Freedom", price: 499, image: "freedom.jpg", category: "autobiography" },
+    { title: "I Am Malala", price: 449, image: "malala.jpg", category: "autobiography" },
+    { title: "Wings of Fire", price: 599, image: "wings_of_fire.jpg", category: "autobiography" },
+];
+
+const bookGrid = document.getElementById("bookGrid");
+const searchInput = document.getElementById("searchInput");
+const filterLinks = document.querySelectorAll(".filter-link");
+let activeCategory = "all";
+
+function renderBooks() {
+    const searchText = searchInput.value.toLowerCase();
+    bookGrid.innerHTML = "";
+    const filteredBooks = books.filter(book =>
+        (activeCategory === "all" || book.category === activeCategory) &&
+        book.title.toLowerCase().includes(searchText)
+    );
+
+    if (filteredBooks.length === 0) {
+        bookGrid.innerHTML = "<p style='grid-column:1/-1; text-align:center; font-weight:bold;'>No books found.</p>";
+    } else {
+        filteredBooks.forEach(book => {
+            const card = document.createElement("div");
+            card.className = "book-card";
+            card.innerHTML = `
+                <div class="book-image-wrapper">
+                    <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+                </div>
+                <h3>${book.title}</h3>
+                <p>₹ ${book.price}</p>
+                <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+            `;
+            bookGrid.appendChild(card);
+        });
+    }
+}
+
+// Search input listener
+searchInput.addEventListener("input", renderBooks);
+
+// Category filter listener
+filterLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        filterLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        activeCategory = link.dataset.category;
+        renderBooks();
+    });
+});
+
+// Initial render
+renderBooks();
+
+// Add to cart function (same as your existing logic)
+function addToCart(title, price, image) {
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.innerHTML = `<div style="display:flex;align-items:center;gap:0.5rem;"><span>✅</span><span>${title} added to cart!</span></div>`;
+    document.body.appendChild(notification);
+    setTimeout(()=>{ notification.classList.add('show'); }, 100);
+    setTimeout(()=>{ notification.classList.remove('show'); setTimeout(()=>{ document.body.removeChild(notification); },300); }, 3000);
+
+    const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+    let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+    cart.push(cartItem);
+    localStorage.setItem('booklyCart', JSON.stringify(cart));
+}
+
+// User login logic
+function checkUserLoginStatus() {
+    const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+    const authButton = document.getElementById('authButton');
+    const profileButton = document.getElementById('profileButton');
+    if (userInfo.isLoggedIn) {
+        authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+        authButton.onclick = function(){ if(confirm('Sign out?')){ localStorage.removeItem('booklyUser'); location.reload(); } };
+        profileButton.onclick = function(){ alert('Profile: '+userInfo.name+'\nEmail: '+userInfo.email); };
+    } else {
+        authButton.innerHTML = `<span>REGISTER</span>`;
+        authButton.onclick = function(){ window.location.href='signin.html'; };
+        profileButton.onclick = function(){ window.location.href='signin.html'; };
+    }
+}
+document.addEventListener('DOMContentLoaded', checkUserLoginStatus);
+</script>
 </body>
 </html>

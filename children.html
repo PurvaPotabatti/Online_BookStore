@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookly - Children</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Cart button styles */
+        .add-to-cart-btn {
+            background: #4A2C2A;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .add-to-cart-btn:hover {
+            background: #3a2120;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4A2C2A;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+        .cart-notification.show {
+            transform: translateX(0);
+        }
+    </style>
 </head>
 <body>
     <div class="main-container">
@@ -29,12 +65,12 @@
             <header class="header">
                 <div class="header-top">
                     <nav class="header-nav">
-  <a href="index.html">HOME</a>
-  <a href="help.html">HELP</a>
-  <a href="about.html">ABOUT US</a>
-  <a href="contact.html">CONTACT</a>
-  <a href="faq.html">FAQ'S</a>
-</nav>
+                        <a href="index.html">HOME</a>
+                        <a href="help.html">HELP</a>
+                        <a href="about.html">ABOUT US</a>
+                        <a href="contact.html">CONTACT</a>
+                        <a href="faq.html">FAQ'S</a>
+                    </nav>
                     <div class="header-actions">
                         <a href="cart.html" class="header-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -44,10 +80,8 @@
                             </svg>
                             <span>CART</span>
                         </a>
-                                                 <a href="signin.html" class="header-button">
-                             <span>REGISTER</span>
-                         </a>
-                         <a href="signin.html" class="profile-button">
+                        <a href="signin.html" class="header-button"><span>REGISTER</span></a>
+                        <a href="signin.html" class="profile-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
@@ -56,179 +90,127 @@
                     </div>
                 </div>
                 <div class="sale-banner">
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
-  </marquee>
-</div>
-                <div class="search-bar">
-                    <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="search" />
-                    <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                    <marquee behavior="scroll" direction="left" scrollamount="6">
+                        🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
+                    </marquee>
                 </div>
+                <div class="search-bar">
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search books..." />
+                <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            </div>
             </header>
+
             <div class="page-content">
                 <div class="category-filters">
-                    <a href="children.html" class="filter-link active">All</a>
-                    <a href="children-picture-books.html" class="filter-link">Picture Books</a>
-                    <a href="children-early-readers.html" class="filter-link">Early Readers</a>
-                    <a href="children-middle-grade.html" class="filter-link">Middle Grade</a>
-                    <a href="children-young-adult.html" class="filter-link">Young Adult</a>
+                    <a href="#" class="filter-link active" data-category="all">All</a>
+                    <a href="#" class="filter-link" data-category="picture">Picture Books</a>
+                    <a href="#" class="filter-link" data-category="early">Early Readers</a>
+                    <a href="#" class="filter-link" data-category="middle">Middle Grade</a>
+                    <a href="#" class="filter-link" data-category="young">Young Adult</a>
                 </div>
-                <div class="book-grid">
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenpicture1.png" alt="The Very Hungry Caterpillar" class="book-image" />
-                         </div>
-                         <h3>The Very Hungry Caterpillar</h3>
-                         <p>₹ 300</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Very Hungry Caterpillar', 300, 'childrenpicture1.png')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenpicture2.png" alt="Brown Bear, Brown Bear, What Do You See?" class="book-image" />
-                         </div>
-                         <h3>Brown Bear, Brown Bear, What Do You See?</h3>
-                         <p>₹ 400</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                         <button class="add-to-cart-btn" onclick="addToCart('Brown Bear, Brown Bear, What Do You See?', 400, 'childrenpicture2.png')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenearly1.png" alt="Elephant & Piggie: We Are in a Book!" class="book-image" />
-                         </div>
-                         <h3>Elephant & Piggie: We Are in a Book!</h3>
-                         <p>₹ 350</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Elephant & Piggie: We Are in a Book!', 350, 'childrenearly1.png')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenearly2.png" alt="The First Book" class="book-image" />
-                         </div>
-                         <h3>The First Book</h3>
-                         <p>₹ 450</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                         <button class="add-to-cart-btn" onclick="addToCart('The First Book', 450, 'childrenearly2.png')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenmiddle1.png" alt="The Lightning Thief" class="book-image" />
-                         </div>
-                         <h3>The Lightning Thief</h3>
-                         <p>₹ 400</p>
-                         <div class="book-rating">⭐☆☆☆☆</div> <!-- 1 star -->
-                         <button class="add-to-cart-btn" onclick="addToCart('The Lightning Thief', 400, 'childrenmiddle1.png')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenmiddle2.png" alt="Charlotte's Web" class="book-image" />
-                         </div>
-                         <h3>Charlotte's Web</h3>
-                         <p>₹ 300</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                         <button class="add-to-cart-btn" onclick="addToCart('Charlotte\'s Web', 300, 'childrenmiddle2.png')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenyoung1.png" alt="The Hunger Games" class="book-image" />
-                         </div>
-                         <h3>The Hunger Games</h3>
-                         <p>₹ 350</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                         <button class="add-to-cart-btn" onclick="addToCart('The Hunger Games', 350, 'childrenyoung1.png')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/childrenyoung2.png" alt="The Fault in Our Stars" class="book-image" />
-                         </div>
-                         <h3>The Fault in Our Stars</h3>
-                         <p>₹ 400</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                         <button class="add-to-cart-btn" onclick="addToCart('The Fault in Our Stars', 400, 'childrenyoung2.png')">Add to Cart</button>
-                     </div>
-                                 </div>
-             </div>
-         </main>
-     </div>
 
-     <style>
-         .add-to-cart-btn {
-             background: #4A2C2A;
-             color: white;
-             border: none;
-             padding: 0.75rem 1.5rem;
-             border-radius: 8px;
-             font-weight: 600;
-             cursor: pointer;
-             transition: all 0.3s ease;
-             margin-top: 1rem;
-             width: 100%;
-         }
-         
-         .add-to-cart-btn:hover {
-             background: #3a2120;
-             transform: translateY(-2px);
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-         }
-         
-         .cart-notification {
-             position: fixed;
-             top: 20px;
-             right: 20px;
-             background: #4A2C2A;
-             color: white;
-             padding: 1rem 1.5rem;
-             border-radius: 8px;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-             z-index: 1000;
-             transform: translateX(400px);
-             transition: transform 0.3s ease;
-         }
-         
-         .cart-notification.show {
-             transform: translateX(0);
-         }
-     </style>
+                <div class="book-grid" id="bookGrid">
+                    <!-- Book cards will be dynamically inserted here by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
 
-     <script>
-         function addToCart(title, price, image) {
-             // Create notification
-             const notification = document.createElement('div');
-             notification.className = 'cart-notification';
-             notification.innerHTML = `
-                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                     <span>✅</span>
-                     <span>${title} added to cart!</span>
-                 </div>
-             `;
-             
-             document.body.appendChild(notification);
-             
-             // Show notification
-             setTimeout(() => {
-                 notification.classList.add('show');
-             }, 100);
-             
-             // Hide notification after 3 seconds
-             setTimeout(() => {
-                 notification.classList.remove('show');
-                 setTimeout(() => {
-                     document.body.removeChild(notification);
-                 }, 300);
-             }, 3000);
-             
-             // Store in localStorage (for cart persistence)
-             const cartItem = {
-                 id: Date.now(),
-                 title: title,
-                 price: price,
-                 image: image,
-                 quantity: 1
-             };
-             
-             let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
-             cart.push(cartItem);
-             localStorage.setItem('booklyCart', JSON.stringify(cart));
-         }
-     </script>
+    <script>
+        // ===== Sample book data =====
+        const books = [
+            {title: "The Very Hungry Caterpillar", price: 300, image: "images/childrenpicture1.png", category: "picture"},
+            {title: "Brown Bear, Brown Bear, What Do You See?", price: 400, image: "images/childrenpicture2.png", category: "picture"},
+            {title: "Elephant & Piggie: We Are in a Book!", price: 350, image: "images/childrenearly1.png", category: "early"},
+            {title: "The First Book", price: 450, image: "images/childrenearly2.png", category: "early"},
+            {title: "The Lightning Thief", price: 400, image: "images/childrenmiddle1.png", category: "middle"},
+            {title: "Charlotte's Web", price: 300, image: "images/childrenmiddle2.png", category: "middle"},
+            {title: "The Hunger Games", price: 350, image: "images/childrenyoung1.png", category: "young"},
+            {title: "The Fault in Our Stars", price: 400, image: "images/childrenyoung2.png", category: "young"},
+        ];
+
+        const bookGrid = document.getElementById('bookGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterLinks = document.querySelectorAll('.filter-link');
+        const registerButton = document.querySelector('.header-actions .header-button:nth-child(2)');
+
+        // ===== Render books =====
+        function renderBooks(filter='all', search='') {
+            bookGrid.innerHTML = '';
+            const filteredBooks = books.filter(book => {
+                const matchCategory = (filter === 'all' || book.category === filter);
+                const matchSearch = book.title.toLowerCase().includes(search.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            filteredBooks.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'book-card';
+                bookCard.innerHTML = `
+                    <div class="book-image-wrapper">
+                        <img src="${book.image}" alt="${book.title}" class="book-image" />
+                    </div>
+                    <h3>${book.title}</h3>
+                    <p>₹ ${book.price}</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+                `;
+                bookGrid.appendChild(bookCard);
+            });
+        }
+
+        // ===== Initial render =====
+        renderBooks();
+
+        // ===== Search functionality =====
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value;
+            const activeCategory = document.querySelector('.filter-link.active').dataset.category;
+            renderBooks(activeCategory, searchTerm);
+        });
+
+        // ===== Category filter =====
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                filterLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                const category = link.dataset.category;
+                renderBooks(category, searchInput.value);
+            });
+        });
+
+        // ===== Cart function =====
+        function addToCart(title, price, image) {
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>✅</span>
+                    <span>${title} added to cart!</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => { notification.classList.add('show'); }, 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => { document.body.removeChild(notification); }, 300);
+            }, 3000);
+
+            const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+            cart.push(cartItem);
+            localStorage.setItem('booklyCart', JSON.stringify(cart));
+        }
+
+        // ===== Show logged-in user name instead of REGISTER =====
+        window.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('booklyUser')); // { name: 'Suhafatima' }
+            if(user) {
+                registerButton.innerHTML = `<span>Welcome, ${user.name}</span>`;
+                registerButton.href = "#"; // Optional: link to profile
+            }
+        });
+    </script>
 </body>
 </html>

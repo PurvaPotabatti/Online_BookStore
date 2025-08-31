@@ -6,437 +6,230 @@
     <title>Bookly - Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .cart-container {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .cart-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .cart-header h1 {
-            color: #4A2C2A;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cart-empty {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: #666;
-        }
-        
-        .cart-empty h2 {
-            margin-bottom: 1rem;
-            color: #4A2C2A;
-        }
-        
-        .cart-empty p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .continue-shopping {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #4A2C2A;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-        
-        .continue-shopping:hover {
-            background: #3a2120;
-        }
-        
-        .cart-items {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        
-        .cart-item-image {
-            width: 80px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-right: 1.5rem;
-        }
-        
-        .cart-item-details {
-            flex: 1;
-        }
-        
-        .cart-item-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cart-item-price {
-            font-size: 1.1rem;
-            color: #4A2C2A;
-            font-weight: 600;
-        }
-        
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .quantity-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        .quantity-btn:hover {
-            background: #f5f5f5;
-        }
-        
-        .quantity-display {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            min-width: 50px;
-            text-align: center;
-        }
-        
-        .remove-btn {
-            padding: 0.5rem 1rem;
-            background: #ff4444;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .remove-btn:hover {
-            background: #cc0000;
-        }
-        
-        .cart-summary {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-        }
-        
-        .summary-row.total {
-            border-top: 2px solid #4A2C2A;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #4A2C2A;
-        }
-        
-        .checkout-btn {
-            width: 100%;
-            padding: 1rem;
-            background: #4A2C2A;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.3s ease;
-        }
-        
-        .checkout-btn:hover {
-            background: #3a2120;
-        }
-        
-        .checkout-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        
-        .login-required-message {
-            text-align: center;
-            padding: 1.5rem;
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-        
-        .login-required-message p {
-            color: #856404;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        
-        .login-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #4A2C2A;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-        
-        .login-btn:hover {
-            background: #3a2120;
-        }
-        
-        .guest-notice {
-            background: #e3f2fd;
-            border: 1px solid #2196f3;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        
-        .guest-notice p {
-            color: #1976d2;
-            margin: 0;
-            font-weight: 500;
-        }
+        /* ---- Cart & Page Styles ---- */
+        .cart-container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .cart-header { text-align: center; margin-bottom: 2rem; }
+        .cart-header h1 { color: #4A2C2A; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .cart-empty { text-align: center; padding: 4rem 2rem; color: #666; }
+        .cart-empty h2 { margin-bottom: 1rem; color: #4A2C2A; }
+        .cart-empty p { margin-bottom: 2rem; font-size: 1.1rem; }
+        .continue-shopping { display: inline-block; padding: 1rem 2rem; background: #4A2C2A; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.3s ease; }
+        .continue-shopping:hover { background: #3a2120; }
+        .cart-items { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; }
+        .cart-item { display: flex; align-items: center; padding: 1.5rem; border-bottom: 1px solid #f0f0f0; }
+        .cart-item:last-child { border-bottom: none; }
+        .cart-item-image { width: 80px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 1.5rem; }
+        .cart-item-details { flex: 1; }
+        .cart-item-title { font-size: 1.2rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+        .cart-item-price { font-size: 1.1rem; color: #4A2C2A; font-weight: 600; }
+        .cart-item-actions { display: flex; align-items: center; gap: 1rem; }
+        .quantity-controls { display: flex; align-items: center; gap: 0.5rem; }
+        .quantity-btn { width: 32px; height: 32px; border: 1px solid #ddd; background: white; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .quantity-btn:hover { background: #f5f5f5; }
+        .quantity-display { padding: 0.5rem 1rem; border: 1px solid #ddd; border-radius: 4px; min-width: 50px; text-align: center; }
+        .remove-btn { padding: 0.5rem 1rem; background: #ff4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+        .remove-btn:hover { background: #cc0000; }
+        .cart-summary { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 2rem; margin-top: 2rem; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 1rem; padding: 0.5rem 0; }
+        .summary-row.total { border-top: 2px solid #4A2C2A; font-weight: bold; font-size: 1.2rem; color: #4A2C2A; }
+        .checkout-btn { width: 100%; padding: 1rem; background: #4A2C2A; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: background 0.3s ease; }
+        .checkout-btn:hover { background: #3a2120; }
+        .checkout-btn:disabled { background: #ccc; cursor: not-allowed; }
+        .login-required-message { text-align: center; padding: 1.5rem; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; margin-top: 1rem; }
+        .login-required-message p { color: #856404; margin-bottom: 1rem; font-weight: 500; }
+        .login-btn { display: inline-block; padding: 0.75rem 1.5rem; background: #4A2C2A; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s ease; }
+        .login-btn:hover { background: #3a2120; }
+        .guest-notice { background: #e3f2fd; border: 1px solid #2196f3; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center; }
+        .guest-notice p { color: #1976d2; margin: 0; font-weight: 500; }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="sidebar-decoration">
-                <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
-                    <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
-                </svg>
-            </div>
-            <div class="relative-content">
-                <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
-                <nav class="sidebar-nav">
-                    <a href="category-fiction.html">Fiction</a>
-                    <a href="non-fiction.html">Non-Fiction</a>
-                    <a href="children.html">Children</a>
-                    <a href="comics.html">Comics</a>
-                    <a href="technology.html">Technology</a>
+<div class="main-container">
+    <aside class="sidebar">
+        <div class="sidebar-decoration">
+            <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
+                <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
+            </svg>
+        </div>
+        <div class="relative-content">
+            <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
+            <nav class="sidebar-nav">
+                <a href="category-fiction.html">Fiction</a>
+                <a href="non-fiction.html">Non-Fiction</a>
+                <a href="children.html">Children</a>
+                <a href="comics.html">Comics</a>
+                <a href="technology.html">Technology</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-top">
+                <nav class="header-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="help.html">HELP</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="faq.html">FAQ'S</a>
                 </nav>
-            </div>
-        </aside>
+                <div class="header-actions">
+                    <a href="cart.html" class="header-button active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>CART</span>
+                    </a>
 
-        <main class="main-content">
-            <header class="header">
-                <div class="header-top">
-                    <nav class="header-nav">
-                        <a href="index.html">HOME</a>
-                        <a href="help.html">HELP</a>
-                        <a href="about.html">ABOUT US</a>
-                        <a href="contact.html">CONTACT</a>
-                        <a href="faq.html">FAQ'S</a>
-                    </nav>
-                    <div class="header-actions">
-                        <a href="cart.html" class="header-button active">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                            <span>CART</span>
-                        </a>
-                                                 <a href="signin.html" class="header-button"><span>REGISTER</span></a>
-                         <a href="signin.html" class="profile-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </header>
+                    <!-- User display button -->
+                    <a href="signin.html" class="header-button" id="userDisplay"><span>REGISTER</span></a>
 
-            <div class="cart-container">
-                <div class="cart-header">
-                    <h1>Your Shopping Cart</h1>
-                    <p>Review your items and proceed to checkout</p>
-                    <div id="guestUserNotice" style="display: none;">
-                        <div class="guest-notice">
-                            <p>👋 You're shopping as a guest. <a href="signin.html" style="color: #4A2C2A; text-decoration: underline;">Sign in</a> to save your cart and proceed to checkout!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="cartContent">
-                    <!-- Cart content will be populated by JavaScript -->
+                    <a href="signin.html" class="profile-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
                 </div>
             </div>
-        </main>
-    </div>
+        </header>
 
-    <script>
-        // Get cart data from localStorage
-        let cartItems = JSON.parse(localStorage.getItem('booklyCart') || '[]');
-
-        function renderCart() {
-            const cartContent = document.getElementById('cartContent');
-            
-            if (cartItems.length === 0) {
-                cartContent.innerHTML = `
-                    <div class="cart-empty">
-                        <h2>Your cart is empty</h2>
-                        <p>Looks like you haven't added any books to your cart yet.</p>
-                        <a href="index.html" class="continue-shopping">Continue Shopping</a>
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1>Your Shopping Cart</h1>
+                <p>Review your items and proceed to checkout</p>
+                <div id="guestUserNotice" style="display: none;">
+                    <div class="guest-notice">
+                        <p>👋 You're shopping as a guest. <a href="signin.html" style="color: #4A2C2A; text-decoration: underline;">Sign in</a> to save your cart and proceed to checkout!</p>
                     </div>
-                `;
-                return;
-            }
+                </div>
+            </div>
 
-            let cartHTML = '<div class="cart-items">';
-            
-            cartItems.forEach(item => {
-                cartHTML += `
-                    <div class="cart-item" data-id="${item.id}">
-                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <div class="cart-item-title">${item.title}</div>
-                            <div class="cart-item-price">₹ ${item.price}</div>
-                        </div>
-                        <div class="cart-item-actions">
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                                <span class="quantity-display">${item.quantity}</span>
-                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                            </div>
-                            <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            cartHTML += '</div>';
-            
-            // Add cart summary
-            const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            <div id="cartContent"></div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Cart data from localStorage
+    let cartItems = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+
+    function renderCart() {
+        const cartContent = document.getElementById('cartContent');
+        if (cartItems.length === 0) {
+            cartContent.innerHTML = `
+                <div class="cart-empty">
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't added any books to your cart yet.</p>
+                    <a href="index.html" class="continue-shopping">Continue Shopping</a>
+                </div>
+            `;
+            return;
+        }
+
+        let cartHTML = '<div class="cart-items">';
+        cartItems.forEach(item => {
             cartHTML += `
-                <div class="cart-summary">
-                    <div class="summary-row">
-                        <span>Subtotal:</span>
-                        <span>₹ ${total}</span>
+                <div class="cart-item" data-id="${item.id}">
+                    <img src="images/${item.image}" alt="${item.title}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-price">₹ ${item.price}</div>
                     </div>
-                    <div class="summary-row">
-                        <span>Shipping:</span>
-                        <span>₹ 50</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Total:</span>
-                        <span>₹ ${total + 50}</span>
-                    </div>
-                    <div id="checkoutSection">
-                        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-                    </div>
-                    <div id="loginRequiredSection" style="display: none;">
-                        <div class="login-required-message">
-                            <p>⚠️ You need to sign in to proceed with payment</p>
-                            <a href="signin.html" class="login-btn">Sign In / Register</a>
+                    <div class="cart-item-actions">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
                         </div>
+                        <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
                     </div>
                 </div>
             `;
-            
-            cartContent.innerHTML = cartHTML;
-        }
+        });
+        cartHTML += '</div>';
 
-        function updateQuantity(itemId, change) {
-            const item = cartItems.find(item => item.id === itemId);
-            if (item) {
-                item.quantity = Math.max(1, item.quantity + change);
-                localStorage.setItem('booklyCart', JSON.stringify(cartItems));
-                renderCart();
-            }
-        }
+        const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartHTML += `
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal:</span><span>₹ ${total}</span></div>
+                <div class="summary-row"><span>Shipping:</span><span>₹ 50</span></div>
+                <div class="summary-row total"><span>Total:</span><span>₹ ${total + 50}</span></div>
+                <div id="checkoutSection">
+                    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+                </div>
+                <div id="loginRequiredSection" style="display: none;">
+                    <div class="login-required-message">
+                        <p>⚠️ You need to sign in to proceed with payment</p>
+                        <a href="signin.html" class="login-btn">Sign In / Register</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        cartContent.innerHTML = cartHTML;
+    }
 
-        function removeItem(itemId) {
-            cartItems = cartItems.filter(item => item.id !== itemId);
+    function updateQuantity(itemId, change) {
+        const item = cartItems.find(item => item.id === itemId);
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + change);
             localStorage.setItem('booklyCart', JSON.stringify(cartItems));
             renderCart();
         }
+    }
 
-        function checkout() {
-            // Check if user is logged in
-            const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-            
-            if (!userInfo.isLoggedIn) {
-                // Show login required message
-                document.getElementById('checkoutSection').style.display = 'none';
-                document.getElementById('loginRequiredSection').style.display = 'block';
-                return;
-            }
-            
-            // User is logged in, proceed to checkout
-            alert('Checkout functionality will be implemented here. Redirecting to payment page...');
-            // In a real app, this would redirect to a payment gateway
+    function removeItem(itemId) {
+        cartItems = cartItems.filter(item => item.id !== itemId);
+        localStorage.setItem('booklyCart', JSON.stringify(cartItems));
+        renderCart();
+    }
+
+    function checkout() {
+        const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+        if (!userInfo.isLoggedIn) {
+            document.getElementById('checkoutSection').style.display = 'none';
+            document.getElementById('loginRequiredSection').style.display = 'block';
+            return;
         }
+        alert('Checkout functionality will be implemented here.');
+    }
 
-        // Check login status and update checkout section
-        function checkLoginStatus() {
-            const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-            const checkoutSection = document.getElementById('checkoutSection');
-            const loginRequiredSection = document.getElementById('loginRequiredSection');
-            const guestUserNotice = document.getElementById('guestUserNotice');
-            
-            if (checkoutSection && loginRequiredSection && guestUserNotice) {
-                if (!userInfo.isLoggedIn) {
-                    checkoutSection.style.display = 'none';
-                    loginRequiredSection.style.display = 'block';
-                    guestUserNotice.style.display = 'block';
-                } else {
-                    checkoutSection.style.display = 'block';
-                    loginRequiredSection.style.display = 'none';
-                    guestUserNotice.style.display = 'none';
-                }
-            }
+    function checkLoginStatus() {
+        const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+        const checkoutSection = document.getElementById('checkoutSection');
+        const loginRequiredSection = document.getElementById('loginRequiredSection');
+        const guestUserNotice = document.getElementById('guestUserNotice');
+
+        if (!userInfo.isLoggedIn) {
+            checkoutSection.style.display = 'none';
+            loginRequiredSection.style.display = 'block';
+            guestUserNotice.style.display = 'block';
+        } else {
+            checkoutSection.style.display = 'block';
+            loginRequiredSection.style.display = 'none';
+            guestUserNotice.style.display = 'none';
         }
+    }
 
-        // Initialize cart on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCart();
-            // Check login status after a short delay to ensure DOM is ready
-            setTimeout(checkLoginStatus, 100);
-        });
-    </script>
+    function updateHeaderUser() {
+        const userDisplay = document.getElementById('userDisplay');
+        const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+        if (userInfo.isLoggedIn && userInfo.name) {
+            userDisplay.innerHTML = `<span>${userInfo.name}</span>`;
+            userDisplay.href = "#"; // Optional: link to profile page
+        } else {
+            userDisplay.innerHTML = `<span>REGISTER</span>`;
+            userDisplay.href = "signin.html";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderCart();
+        setTimeout(checkLoginStatus, 100);
+        updateHeaderUser();
+    });
+</script>
 </body>
 </html>
