@@ -29,12 +29,12 @@
             <header class="header">
                 <div class="header-top">
                     <nav class="header-nav">
-  <a href="index.html">HOME</a>
-  <a href="help.html">HELP</a>
-  <a href="about.html">ABOUT US</a>
-  <a href="contact.html">CONTACT</a>
-  <a href="faq.html">FAQ'S</a>
-</nav>
+                        <a href="index.html">HOME</a>
+                        <a href="help.html">HELP</a>
+                        <a href="about.html">ABOUT US</a>
+                        <a href="contact.html">CONTACT</a>
+                        <a href="faq.html">FAQ'S</a>
+                    </nav>
                     <div class="header-actions">
                         <a href="cart.html" class="header-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -44,10 +44,8 @@
                             </svg>
                             <span>CART</span>
                         </a>
-                             <a href="signin.html" class="header-button">
-                             <span>REGISTER</span>
-                         </a>
-                         <a href="signin.html" class="profile-button">
+                         <a href="signin.html" class="header-button" id="authButton"><span>REGISTER</span></a>
+                        <a href="signin.html" class="profile-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
@@ -55,16 +53,16 @@
                         </a>
                     </div>
                 </div>
-                 <div class="sale-banner">
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
-  </marquee>
-</div>
-                <div class="search-bar">
-                    <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="search" />
-                    <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                <div class="sale-banner">
+                    <marquee behavior="scroll" direction="left" scrollamount="6">
+                        🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
+                    </marquee>
                 </div>
+                <div class="search-bar">
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search books..." />
+                <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            </div>
             </header>
             <div class="page-content">
                 <div class="category-filters">
@@ -74,74 +72,136 @@
                     <a href="comics-graphic-novels.html" class="filter-link">Graphic Novels</a>
                     <a href="comics-indie.html" class="filter-link">Indie</a>
                 </div>
-                <div class="book-grid">
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicssuper1.png" alt="Batman: Year One" class="book-image" />
-                        </div>
-                        <h3>Batman: Year One</h3>
-                        <p>₹ 600</p>
-                         <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 4 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicssuper2.png" alt="Spider-Man: Into the Spider-Verse" class="book-image" />
-                        </div>
-                        <h3>Spider-Man: Into the Spider-Verse</h3>
-                        <p>₹ 800</p>
-                        <div class="book-rating">⭐⭐⭐⭐☆</div> <!-- 4 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsmanga1.png" alt="Naruto Vol. 1" class="book-image" />
-                        </div>
-                        <h3>Naruto Vol. 1</h3>
-                        <p>₹ 400</p>
-                        <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsmanga2.png" alt="Demon Slayer Vol. 1" class="book-image" />
-                        </div>
-                        <h3>Demon Slayer Vol. 1</h3>
-                        <p>₹ 550</p>
-                        <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsgraphic1.png" alt="Persepolis" class="book-image" />
-                        </div>
-                        <h3>Persepolis</h3>
-                        <p>₹ 600</p>
-                        <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsgraphic2.png" alt="Maus" class="book-image" />
-                        </div>
-                        <h3>Maus</h3>
-                        <p>₹ 700</p>
-                        <div class="book-rating">⭐⭐⭐⭐☆</div> <!-- 4 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsindie1.png" alt="Saga Vol. 1" class="book-image" />
-                        </div>
-                        <h3>Saga Vol. 1</h3>
-                        <p>₹ 700</p>
-                        <div class="book-rating">⭐⭐⭐⭐☆</div> <!-- 4 stars -->
-                    </div>
-                    <div class="book-card">
-                        <div class="book-image-wrapper">
-                            <img src="images/comicsindie2.png" alt="The Umbrella Academy Vol. 1" class="book-image" />
-                        </div>
-                        <h3>The Umbrella Academy Vol. 1</h3>
-                        <p>₹ 600</p>
-                        <div class="book-rating">⭐⭐⭐⭐☆</div> <!-- 4 stars -->
-                    </div>
-                </div>
+                <div class="book-grid"></div>
             </div>
         </main>
     </div>
+
+    <style>
+        .add-to-cart-btn {
+            background: #4A2C2A;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #3a2120;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4A2C2A;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-notification.show {
+            transform: translateX(0);
+        }
+    </style>
+
+    <script>
+    const books = [
+        { title: "Batman: Year One", price: 600, image: "comicssuper1.png", category: "superheroes", rating: "⭐⭐⭐⭐⭐" },
+        { title: "Spider-Man: Into the Spider-Verse", price: 800, image: "comicssuper2.png", category: "superheroes", rating: "⭐⭐⭐⭐☆" },
+        { title: "Naruto Vol. 1", price: 400, image: "comicsmanga1.png", category: "manga", rating: "⭐⭐⭐⭐⭐" },
+        { title: "Demon Slayer Vol. 1", price: 550, image: "comicsmanga2.png", category: "manga", rating: "⭐⭐⭐⭐⭐" },
+        { title: "Persepolis", price: 600, image: "comicsgraphic1.png", category: "graphic", rating: "⭐⭐⭐⭐⭐" },
+        { title: "Maus", price: 700, image: "comicsgraphic2.png", category: "graphic", rating: "⭐⭐⭐⭐☆" },
+        { title: "Saga Vol. 1", price: 700, image: "comicsindie1.png", category: "indie", rating: "⭐⭐⭐⭐☆" },
+        { title: "The Umbrella Academy Vol. 1", price: 600, image: "comicsindie2.png", category: "indie", rating: "⭐⭐⭐⭐☆" }
+    ];
+
+    const bookGrid = document.querySelector(".book-grid");
+    const searchInput = document.querySelector(".search-bar input");
+    const filterLinks = document.querySelectorAll(".filter-link");
+    let activeCategory = "all";
+
+    function renderBooks() {
+        const searchText = searchInput.value.toLowerCase();
+        bookGrid.innerHTML = "";
+
+        const filteredBooks = books.filter(book => 
+            (activeCategory === "all" || book.category === activeCategory) &&
+            book.title.toLowerCase().includes(searchText)
+        );
+
+        if(filteredBooks.length === 0){
+            bookGrid.innerHTML = "<p style='grid-column:1/-1; text-align:center; font-weight:bold;'>No books found.</p>";
+        } else {
+            filteredBooks.forEach(book => {
+                const card = document.createElement("div");
+                card.className = "book-card";
+                card.innerHTML = `
+                    <div class="book-image-wrapper">
+                        <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+                    </div>
+                    <h3>${book.title}</h3>
+                    <p>₹ ${book.price}</p>
+                    <div class="book-rating">${book.rating}</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+                `;
+                bookGrid.appendChild(card);
+            });
+        }
+    }
+
+    // Search functionality
+    searchInput.addEventListener("input", renderBooks);
+
+    // Category filter functionality
+    filterLinks.forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            filterLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+            const catText = link.textContent.toLowerCase().replace(/\s/g,'');
+            activeCategory = catText === "all" ? "all" : catText;
+            renderBooks();
+        });
+    });
+
+    // Initial render
+    renderBooks();
+
+    // Add to Cart functionality
+    function addToCart(title, price, image) {
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.innerHTML = `✅ ${title} added to cart!`;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 100);
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => document.body.removeChild(notification), 300);
+        }, 3000);
+
+        const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+        let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+        cart.push(cartItem);
+        localStorage.setItem('booklyCart', JSON.stringify(cart));
+
+        if(user) {
+                registerButton.innerHTML = `<span>Welcome, ${user.name}</span>`;
+                registerButton.href = "#"; // Optional: link to profile
+            }
+    }
+    </script>
 </body>
 </html>

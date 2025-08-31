@@ -14,7 +14,6 @@
             background: linear-gradient(135deg, #4A2C2A 0%, #C3A6A0 100%);
             padding: 2rem;
         }
-        
         .auth-card {
             background: white;
             border-radius: 20px;
@@ -24,7 +23,6 @@
             max-width: 800px;
             display: flex;
         }
-        
         .auth-left {
             flex: 1;
             background: linear-gradient(135deg, #4A2C2A 0%, #C3A6A0 100%);
@@ -36,7 +34,6 @@
             align-items: center;
             text-align: center;
         }
-        
         .auth-right {
             flex: 1;
             padding: 3rem;
@@ -44,13 +41,11 @@
             flex-direction: column;
             justify-content: center;
         }
-        
         .auth-tabs {
             display: flex;
             margin-bottom: 2rem;
             border-bottom: 2px solid #f0f0f0;
         }
-        
         .auth-tab {
             flex: 1;
             padding: 1rem;
@@ -59,32 +54,26 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
         }
-        
         .auth-tab.active {
             border-bottom-color: #4A2C2A;
             color: #4A2C2A;
             font-weight: bold;
         }
-        
         .auth-form {
             display: none;
         }
-        
         .auth-form.active {
             display: block;
         }
-        
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: #333;
             font-weight: 500;
         }
-        
         .form-group input {
             width: 100%;
             padding: 0.75rem;
@@ -93,12 +82,10 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-        
         .form-group input:focus {
             outline: none;
             border-color: #4A2C2A;
         }
-        
         .auth-btn {
             width: 100%;
             padding: 1rem;
@@ -111,22 +98,18 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-        
         .auth-btn:hover {
             background: #3a2120;
         }
-        
         .auth-logo {
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 1rem;
         }
-        
         .auth-subtitle {
             font-size: 1.1rem;
             opacity: 0.9;
         }
-        
         .back-home {
             position: absolute;
             top: 2rem;
@@ -139,7 +122,6 @@
             border-radius: 25px;
             transition: all 0.3s ease;
         }
-        
         .back-home:hover {
             background: white;
             color: #4A2C2A;
@@ -147,6 +129,7 @@
     </style>
 </head>
 <body>
+    <body>
     <a href="index.html" class="back-home">← Back to Home</a>
     
     <div class="auth-container">
@@ -169,11 +152,11 @@
                 <form class="auth-form active" id="signinForm">
                     <div class="form-group">
                         <label for="signinEmail">Email</label>
-                        <input type="email" id="signinEmail" required>
+                        <input type="email" id="signinEmail" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="signinPassword">Password</label>
-                        <input type="password" id="signinPassword" required>
+                        <input type="password" id="signinPassword" name="password" required>
                     </div>
                     <button type="submit" class="auth-btn">Sign In</button>
                 </form>
@@ -182,15 +165,15 @@
                 <form class="auth-form" id="signupForm">
                     <div class="form-group">
                         <label for="signupName">Full Name</label>
-                        <input type="text" id="signupName" required>
+                        <input type="text" id="signupName" name="username" required>
                     </div>
                     <div class="form-group">
                         <label for="signupEmail">Email</label>
-                        <input type="email" id="signupEmail" required>
+                        <input type="email" id="signupEmail" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="signupPassword">Password</label>
-                        <input type="password" id="signupPassword" required minlength="6">
+                        <input type="password" id="signupPassword" name="password" required minlength="6">
                     </div>
                     <div class="form-group">
                         <label for="signupConfirmPassword">Confirm Password</label>
@@ -204,17 +187,13 @@
 
     <script>
         function showForm(formType) {
-            // Hide all forms
             document.querySelectorAll('.auth-form').forEach(form => {
                 form.classList.remove('active');
             });
-            
-            // Remove active class from all tabs
             document.querySelectorAll('.auth-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Show selected form and activate tab
             if (formType === 'signin') {
                 document.getElementById('signinForm').classList.add('active');
                 document.querySelector('.auth-tab:first-child').classList.add('active');
@@ -223,18 +202,40 @@
                 document.querySelector('.auth-tab:last-child').classList.add('active');
             }
         }
-        
-        // Form submission handling
+
+        // ✅ Handle Sign In
         document.getElementById('signinForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your sign in logic here
-            alert('Sign in functionality will be implemented here');
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+
+            // Simulate login success (replace with real backend check if available)
+            const userInfo = { email, isLoggedIn: true };
+            localStorage.setItem('booklyUser', JSON.stringify(userInfo));
+
+            alert('Sign in successful!');
+            window.location.href = 'cart.html'; // redirect after login
         });
-        
+
+        // ✅ Handle Sign Up
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your sign up logic here
-            alert('Sign up functionality will be implemented here');
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+            if(password !== confirmPassword){
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Simulate signup success (replace with real backend storage if available)
+            const userInfo = { name, email, isLoggedIn: true };
+            localStorage.setItem('booklyUser', JSON.stringify(userInfo));
+
+            alert('Account created and signed in!');
+            window.location.href = 'cart.html'; // redirect after signup
         });
     </script>
 </body>

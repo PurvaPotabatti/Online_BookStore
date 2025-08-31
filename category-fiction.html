@@ -6,302 +6,211 @@
     <title>Bookly - Fiction</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+<style>
+      .add-to-cart-btn {
+            background: #4A2C2A;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .add-to-cart-btn:hover {
+            background: #3a2120;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4A2C2A;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+        .cart-notification.show {
+            transform: translateX(0);
+        }
+</style>
 <body>
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="sidebar-decoration">
-                <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
-                    <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
-                </svg>
-            </div>
-            <div class="relative-content">
-                <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
-                <nav class="sidebar-nav">
-                    <a href="category-fiction.html" class="active">Fiction</a>
-                    <a href="non-fiction.html">Non-Fiction</a>
-                    <a href="children.html" >Children</a>
-                    <a href="comics.html">Comics</a>
-                    <a href="technology.html">Technology</a>
+<div class="main-container">
+    <aside class="sidebar">
+        <div class="sidebar-decoration">
+            <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
+                <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
+            </svg>
+        </div>
+        <div class="relative-content">
+            <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
+            <nav class="sidebar-nav">
+                <a href="category-fiction.html" class="active">Fiction</a>
+                <a href="non-fiction.html">Non-Fiction</a>
+                <a href="children.html" >Children</a>
+                <a href="comics.html">Comics</a>
+                <a href="technology.html">Technology</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-top">
+                <nav class="header-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="help.html">HELP</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="faq.html">FAQ'S</a>
                 </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="header-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>CART</span>
+                    </a>
+                    <a href="signin.html" class="header-button" id="authButton"><span>REGISTER</span></a>
+                    <a href="signin.html" class="profile-button" id="profileButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </aside>
-        <main class="main-content">
-            <header class="header">
-                <div class="header-top">
-                    <nav class="header-nav">
-                        <a href="index.html">HOME</a>
-                        <a href="help.html">HELP</a>
-                        <a href="about.html">ABOUT US</a>
-                        <a href="contact.html">CONTACT</a>
-                        <a href="faq.html">FAQ'S</a>
-                    </nav>
-                    <div class="header-actions">
-                        <a href="cart.html" class="header-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                            <span>CART</span>
-                        </a>
-                                                 <a href="signin.html" class="header-button" id="authButton">
-                             <span>REGISTER</span>
-                         </a>
-                         <a href="signin.html" class="profile-button" id="profileButton">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="sale-banner">
-                    SALEEEE!!!!!!!SALEEEEEE !!! SALEEEEEEEE
-                </div>
-                <div class="search-bar">
-                    <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="search" />
-                    <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
-                </div>
-            </header>
-            <div class="page-content">
-                <div class="category-filters">
-                    <a href="category-fiction.html" class="filter-link active">All</a>
-                    <a href="fiction_fantasy.html" class="filter-link">Fantasy</a>
-                    <a href="fiction_romance.html" class="filter-link">Romance</a>
-                    <a href="fiction_horror.html" class="filter-link">Horror</a>
-                    <a href="fiction_mystery.html" class="filter-link">Mystery</a>
-                </div>
-                <div class="book-grid">
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/hobbit.jpg" alt="The Hobbit" class="book-image" />
-                         </div>
-                         <h3>The Hobbit</h3>
-                         <p>₹ 400</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Hobbit', 400, 'hobbit.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/harry_potter.jpg" alt="Harry Potter and the Sorcerer's Stone" class="book-image" />
-                         </div>
-                         <h3>Harry Potter and the Sorcerer's Stone</h3>
-                         <p>₹ 449</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Harry Potter and the Sorcerer\'s Stone', 449, 'harry_potter.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/thrones.jpg" alt="A Game of Thrones" class="book-image" />
-                         </div>
-                         <h3>A Game of Thrones</h3>
-                         <p>₹ 599</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('A Game of Thrones', 599, 'thrones.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/beautiful.jpg" alt="Beautiful Disaster" class="book-image" />
-                         </div>
-                         <h3>Beautiful Disaster</h3>
-                         <p>₹ 350</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Beautiful Disaster', 350, 'beautiful.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/before_you.jpg" alt="Me Before You" class="book-image" />
-                         </div>
-                         <h3>Me Before You</h3>
-                         <p>₹ 299</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Me Before You', 299, 'before_you.jpg')">Add to Cart</button>
-                     </div>
-                                         <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/with_us.jpg" alt="It Ends With Us" class="book-image" />
-                         </div>
-                         <h3>It Ends With Us</h3>
-                         <p>₹ 399</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('It Ends With Us', 399, 'with_us.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/shinning.jpg" alt="The Shining" class="book-image" />
-                         </div>
-                         <h3>The Shining</h3>
-                         <p>₹ 499</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Shining', 499, 'shinning.jpg')">Add to Cart</button>
-                     </div>
-                     <div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/bird_box.jpg" alt="Bird Box" class="book-image" />
-                         </div>
-                         <h3>Bird Box</h3>
-                         <p>₹ 349</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('Bird Box', 349, 'bird_box.jpg')">Add to Cart</button>
-                     </div>
-										<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/house.jpg" alt="The Haunting of Hill House" class="book-image" />
-                         </div>
-                         <h3>The Haunting of Hill House</h3>
-                         <p>₹ 379</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Haunting of Hill House', 379, 'house.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/seven.jpg" alt="The Secret Seven" class="book-image" />
-                         </div>
-                         <h3>The Secret Seven</h3>
-                         <p>₹ 599</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Secret Seven', 599, 'seven.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/train.jpg" alt="The Girl on the Train" class="book-image" />
-                         </div>
-                         <h3>The Girl on the Train</h3>
-                         <p>₹ 349</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Girl on the Train', 349, 'train.jpg')">Add to Cart</button>
-                     </div>
-					<div class="book-card">
-                         <div class="book-image-wrapper">
-                             <img src="images/blue_train.jpg" alt="The Mystery of the Blue Train" class="book-image" />
-                         </div>
-                         <h3>The Mystery of the Blue Train</h3>
-                         <p>₹ 269</p>
-                         <button class="add-to-cart-btn" onclick="addToCart('The Mystery of the Blue Train', 269, 'blue_train.jpg')">Add to Cart</button>
-                     </div>
-                                 </div>
-             </div>
-         </main>
-     </div>
 
-     <style>
-         .add-to-cart-btn {
-             background: #4A2C2A;
-             color: white;
-             border: none;
-             padding: 0.75rem 1.5rem;
-             border-radius: 8px;
-             font-weight: 600;
-             cursor: pointer;
-             transition: all 0.3s ease;
-             margin-top: 1rem;
-             width: 100%;
-         }
-         
-         .add-to-cart-btn:hover {
-             background: #3a2120;
-             transform: translateY(-2px);
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-         }
-         
-         .cart-notification {
-             position: fixed;
-             top: 20px;
-             right: 20px;
-             background: #4A2C2A;
-             color: white;
-             padding: 1rem 1.5rem;
-             border-radius: 8px;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-             z-index: 1000;
-             transform: translateX(400px);
-             transition: transform 0.3s ease;
-         }
-         
-         .cart-notification.show {
-             transform: translateX(0);
-         }
-     </style>
+            <div class="sale-banner">
+                <marquee behavior="scroll" direction="left" scrollamount="6">
+                    🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
+                </marquee>
+            </div>
 
-     <script>
-         function addToCart(title, price, image) {
-             // Create notification
-             const notification = document.createElement('div');
-             notification.className = 'cart-notification';
-             notification.innerHTML = `
-                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                     <span>✅</span>
-                     <span>${title} added to cart!</span>
-                 </div>
-             `;
-             
-             document.body.appendChild(notification);
-             
-             // Show notification
-             setTimeout(() => {
-                 notification.classList.add('show');
-             }, 100);
-             
-             // Hide notification after 3 seconds
-             setTimeout(() => {
-                 notification.classList.remove('show');
-                 setTimeout(() => {
-                     document.body.removeChild(notification);
-                 }, 300);
-             }, 3000);
-             
-                      // Store in localStorage (for cart persistence)
-         const cartItem = {
-             id: Date.now(),
-             title: title,
-             price: price,
-             image: image,
-             quantity: 1
-         };
-         
-         let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
-         cart.push(cartItem);
-         localStorage.setItem('booklyCart', JSON.stringify(cart));
-     }
+            <div class="search-bar">
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search books..." />
+                <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            </div>
+        </header>
 
-     // Check if user is logged in and update UI
-     function checkUserLoginStatus() {
-         const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-         const authButton = document.getElementById('authButton');
-         const profileButton = document.getElementById('profileButton');
-         
-         if (userInfo.isLoggedIn) {
-             // User is logged in
-             authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
-             authButton.onclick = function() {
-                 if (confirm('Do you want to sign out?')) {
-                     localStorage.removeItem('booklyUser');
-                     location.reload();
-                 }
-             };
-             
-             profileButton.innerHTML = `
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                     <circle cx="12" cy="7" r="4"></circle>
-                 </svg>
-             `;
-             profileButton.onclick = function() {
-                 alert('Profile: ' + userInfo.name + '\nEmail: ' + userInfo.email);
-             };
-         } else {
-             // User is not logged in
-             authButton.innerHTML = `<span>REGISTER</span>`;
-             authButton.onclick = function() {
-                 window.location.href = 'signin.html';
-             };
-             
-             profileButton.innerHTML = `
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                     <path d="M20 21v-2a4 4 0 0 0-4 4v2"></path>
-                     <circle cx="12" cy="7" r="4"></circle>
-                 </svg>
-             `;
-             profileButton.onclick = function() {
-                 window.location.href = 'signin.html';
-             };
-         }
-     }
+        <div class="page-content">
+            <div class="category-filters">
+                <a href="#" class="filter-link active" data-category="all">All</a>
+                <a href="#" class="filter-link" data-category="fantasy">Fantasy</a>
+                <a href="#" class="filter-link" data-category="romance">Romance</a>
+                <a href="#" class="filter-link" data-category="horror">Horror</a>
+                <a href="#" class="filter-link" data-category="mystery">Mystery</a>
+            </div>
 
-     // Initialize user login status when page loads
-     document.addEventListener('DOMContentLoaded', function() {
-         checkUserLoginStatus();
-     });
-     </script>
+            <div class="book-grid" id="bookGrid">
+                <!-- All books are now dynamically filtered by search & category -->
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+const books = [
+    { title: "The Hobbit", price: 400, image: "hobbit.jpg", category: "fantasy" },
+    { title: "Harry Potter and the Sorcerer's Stone", price: 449, image: "harry_potter.jpg", category: "fantasy" },
+    { title: "A Game of Thrones", price: 599, image: "thrones.jpg", category: "fantasy" },
+    { title: "Beautiful Disaster", price: 350, image: "beautiful.jpg", category: "romance" },
+    { title: "Me Before You", price: 299, image: "before_you.jpg", category: "romance" },
+    { title: "It Ends With Us", price: 399, image: "with_us.jpg", category: "romance" },
+    { title: "The Shining", price: 499, image: "shinning.jpg", category: "horror" },
+    { title: "Bird Box", price: 349, image: "bird_box.jpg", category: "horror" },
+    { title: "The Haunting of Hill House", price: 379, image: "house.jpg", category: "horror" },
+    { title: "The Secret Seven", price: 599, image: "seven.jpg", category: "mystery" },
+    { title: "The Girl on the Train", price: 349, image: "train.jpg", category: "mystery" },
+    { title: "The Mystery of the Blue Train", price: 269, image: "blue_train.jpg", category: "mystery" },
+];
+
+const bookGrid = document.getElementById("bookGrid");
+const searchInput = document.getElementById("searchInput");
+const filterLinks = document.querySelectorAll(".filter-link");
+
+let activeCategory = "all";
+
+function renderBooks() {
+    const searchText = searchInput.value.toLowerCase();
+    bookGrid.innerHTML = "";
+    const filteredBooks = books.filter(book => 
+        (activeCategory === "all" || book.category === activeCategory) &&
+        book.title.toLowerCase().includes(searchText)
+    );
+    filteredBooks.forEach(book => {
+        const card = document.createElement("div");
+        card.className = "book-card";
+        card.innerHTML = `
+            <div class="book-image-wrapper">
+                <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+            </div>
+            <h3>${book.title}</h3>
+            <p>₹ ${book.price}</p>
+            <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+        `;
+        bookGrid.appendChild(card);
+    });
+}
+
+// Search input listener
+searchInput.addEventListener("input", renderBooks);
+
+// Category filter listener
+filterLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        filterLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        activeCategory = link.dataset.category;
+        renderBooks();
+    });
+});
+
+// Initial render
+renderBooks();
+
+// Add to cart function remains same as your previous code
+function addToCart(title, price, image) {
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.innerHTML = `<div style="display:flex;align-items:center;gap:0.5rem;"><span>✅</span><span>${title} added to cart!</span></div>`;
+    document.body.appendChild(notification);
+    setTimeout(()=>{ notification.classList.add('show'); }, 100);
+    setTimeout(()=>{ notification.classList.remove('show'); setTimeout(()=>{ document.body.removeChild(notification); },300); }, 3000);
+
+    const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+    let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
+    cart.push(cartItem);
+    localStorage.setItem('booklyCart', JSON.stringify(cart));
+}
+
+// User login status function remains same
+function checkUserLoginStatus() {
+    const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+    const authButton = document.getElementById('authButton');
+    const profileButton = document.getElementById('profileButton');
+    if (userInfo.isLoggedIn) {
+        authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+        authButton.onclick = function(){ if(confirm('Sign out?')){ localStorage.removeItem('booklyUser'); location.reload(); } };
+        profileButton.onclick = function(){ alert('Profile: '+userInfo.name+'\nEmail: '+userInfo.email); };
+    } else {
+        authButton.innerHTML = `<span>REGISTER</span>`;
+        authButton.onclick = function(){ window.location.href='signin.html'; };
+        profileButton.onclick = function(){ window.location.href='signin.html'; };
+    }
+}
+document.addEventListener('DOMContentLoaded', checkUserLoginStatus);
+</script>
 </body>
 </html>
