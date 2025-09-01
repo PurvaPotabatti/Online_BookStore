@@ -1,41 +1,69 @@
 <?php
-// Database connection
-$host = "localhost";
-$user = "root";       // default in XAMPP
-$pass = "";           // default is empty
-$db   = "online_bookstore";
+session_start();
+require_once 'db_connect.php';
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email    = $conn->real_escape_string($_POST['email']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = trim($_POST['username']);
     $password = $_POST['password'];
-
-    // Fetch user
-    $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-
-        // Verify password
-        if (password_verify($password, $user['password'])) {
-            // Success → Start session
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-
-            header("Location: index.html");
-            exit();
-        } else {
-            echo "<script>alert('Invalid password!'); window.location.href='signin.html';</script>";
+    
+    // Validation
+    $errors = [];
+    
+    if (empty($username)) {
+        $errors[] = "Username is required";
+    }
+    
+    if (empty($password)) {
+        $errors[] = "Password is required";
+    }
+    
+    if (empty($errors)) {
+        try {
+            $pdo = getDBConnection();
+            
+            // Check if user exists and verify password
+            $stmt = $pdo->prepare("SELECT id, username, email, password FROM users WHERE username = ? OR email = ?");
+            $stmt->execute([$username, $username]);
+            $user = $stmt->fetch();
+            
+            if ($user && password_verify($password, $user['password'])) {
+                // Login successful
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['is_logged_in'] = true;
+                
+                $response = [
+                    'success' => true,
+                    'message' => 'Login successful!',
+                    'user' => [
+                        'id' => $user['id'],
+                        'username' => $user['username'],
+                        'email' => $user['email']
+                    ]
+                ];
+                echo json_encode($response);
+                exit;
+            } else {
+                $errors[] = "Invalid username/email or password";
+            }
+            
+        } catch(PDOException $e) {
+            $errors[] = "Login failed: " . $e->getMessage();
         }
-    } else {
-        echo "<script>alert('No account found with this email! Please sign up first.'); window.location.href='signup.html';</script>";
+    }
+    
+    if (!empty($errors)) {
+        $response = [
+            'success' => false,
+            'errors' => $errors
+        ];
+        echo json_encode($response);
+        exit;
     }
 }
-$conn->close();
+
+// If not POST request, redirect to signin page
+header('Location: signin.html');
+exit;
 ?>

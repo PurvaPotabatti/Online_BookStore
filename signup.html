@@ -13,8 +13,8 @@
 
     /* Input placeholder styling */
     .input-field::placeholder {
-      font-size: 1rem;
-      color: #4A2C2A;
+      font-size: 0.95rem;
+      color: #6c757d;
       opacity: 1;
     }
 
@@ -31,15 +31,17 @@
     /* Decoration styling */
     .auth-form-decoration {
       transform: translateX(-80%) translateY(-75%) !important;
-      background-color: #4A2C2A !important;
+      background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%) !important;
     }
 
     /* Submit button */
     .auth-submit-btn {
-      background-color: #4A2C2A;
+      background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
     }
     .auth-submit-btn:hover {
-      background-color: #3a2120;
+      background: linear-gradient(135deg, #FF1493 0%, #E91E63 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(15, 164, 175, 0.4);
     }
   </style>
 </head>
@@ -64,7 +66,7 @@
 
           <!-- Email -->
           <div class="input-field-wrapper">
-            <span class="icon" style="color:#4A2C2A">@</span>
+            <span class="icon" style="color:#0FA4AF">@</span>
             <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
           </div>
           <div id="emailError" class="error-message"></div>
@@ -86,7 +88,7 @@
           <!-- Options -->
           <div class="auth-options">
             <label><input type="checkbox" id="rememberMe"> Remember me</label>
-            <a href="#" style="color:#4A2C2A;">Forgot password?</a>
+            <a href="#" style="color:#0FA4AF;">Forgot password?</a>
           </div>
 
           <!-- Submit -->

@@ -10,8 +10,8 @@
             backdrop-filter: blur(5px);
         }
         .input-field::placeholder {
-            font-size: 1rem;
-            color: #4A2C2A; 
+            font-size: 0.95rem;
+            color: #6c757d;
             opacity: 1;
         }
         .input-error {
@@ -22,15 +22,36 @@
             font-size: 0.75rem;
             margin-top: 0.25rem;
         }
+        .success-message {
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(15, 164, 175, 0.3);
+        }
         .auth-form-decoration {
             transform: translateX(-80%) translateY(-75%) !important;
-            background-color: #4A2C2A !important;
+            background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%) !important;
         }
         .auth-submit-btn {
-            background-color: #4A2C2A;
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
         }
         .auth-submit-btn:hover {
-            background-color: #3a2120;
+            background: linear-gradient(135deg, #FF1493 0%, #E91E63 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(15, 164, 175, 0.4);
+        }
+        .input-field-wrapper .icon {
+            color: #0FA4AF;
+        }
+        .auth-options a {
+            color: #0FA4AF;
+        }
+        .auth-toggle a {
+            color: #0FA4AF;
         }
     </style>
 </head>
@@ -42,18 +63,15 @@
         <div class="auth-form-container">
             <div class="auth-form-decoration"></div>
             <div class="auth-form-content">
-                <h1 id="authTitle" style="margin-left: 8rem;">Sign In</h1>
+                <h1 style="margin-left: 4rem;">Sign In</h1>
 
-                <!-- ✅ Sign In Form -->
-                <form class="auth-form" id="signinForm" novalidate>
-                    <div class="input-field-wrapper">
-                        <span class="icon">👤</span>
-                        <input type="text" name="username" id="name" class="input-field" placeholder="Name" required>
-                    </div>
-                    <div id="nameError" class="error-message"></div>
+                <!-- Success Message Area -->
+                <div id="successMessage" class="success-message" style="display: none;"></div>
 
+                <!-- ✅ Sign In Form - Connected to signin.php -->
+                <form class="auth-form" id="signinForm" action="signin.php" method="post" onsubmit="return validateForm(event)">
                     <div class="input-field-wrapper">
-                        <span class="icon" style="color: #4A2C2A">@</span>
+                        <span class="icon">@</span>
                         <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
                     </div>
                     <div id="emailError" class="error-message"></div>
@@ -65,13 +83,14 @@
                     <div id="passwordError" class="error-message"></div>
 
                     <div class="auth-options">
-                        <a href="#" style="color:#4A2C2A;">Forgot password?</a>
+                        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+                        <a href="#">Forgot password?</a>
                     </div>
 
                     <button type="submit" class="auth-submit-btn">SIGN IN</button>
                 </form>
 
-                <div class="auth-footer" style="text-align: center; margin-top: 2rem; color: #4A2C2A;">
+                <div class="auth-toggle">
                     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
                 </div>
             </div>
@@ -80,52 +99,79 @@
 
     <script>
         const signinForm = document.getElementById('signinForm');
+        const successMessage = document.getElementById('successMessage');
 
-        signinForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Check if user is coming from signup (check URL parameters)
+        function checkSignupSuccess() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromSignup = urlParams.get('from');
+            
+            if (fromSignup === 'signup') {
+                successMessage.textContent = '✅ Account created successfully! Please sign in with your credentials.';
+                successMessage.style.display = 'block';
+                
+                // Remove the parameter from URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
 
-            // Get input values
-            const name = document.getElementById('name').value.trim();
+        // Check for success message on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSignupSuccess();
+            console.log('Signin page loaded successfully');
+        });
+
+        // Form validation function
+        function validateForm(event) {
+            console.log('Form submission started');
+            let valid = true;
+
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+            document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
+
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
-            let hasError = false;
+            console.log('Email:', email);
+            console.log('Password length:', password.length);
 
-            // Basic validation
-            if (name === "") {
-                document.getElementById('nameError').textContent = "Name is required";
-                hasError = true;
-            } else {
-                document.getElementById('nameError').textContent = "";
+            // Email validation
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                document.getElementById('email').classList.add('input-error');
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Enter a valid email address.';
+                document.getElementById('email').classList.add('input-error');
+                valid = false;
             }
 
-            if (email === "") {
-                document.getElementById('emailError').textContent = "Email is required";
-                hasError = true;
-            } else {
-                document.getElementById('emailError').textContent = "";
-            }
-
+            // Password validation
             if (password.length < 6) {
-                document.getElementById('passwordError').textContent = "Password must be at least 6 characters";
-                hasError = true;
-            } else {
-                document.getElementById('passwordError').textContent = "";
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+                document.getElementById('password').classList.add('input-error');
+                valid = false;
             }
 
-            if (hasError) return;
+            // If invalid, stop submission
+            if (!valid) {
+                event.preventDefault();
+                console.log('Form validation failed');
+                return false;
+            }
 
-            // Save login info to localStorage
-            const user = {
-                username: name,
-                email: email,
-                isLoggedIn: true
-            };
-            localStorage.setItem('booklyUser', JSON.stringify(user));
+            console.log('Form validation passed, submitting to signin.php');
+            return true;
+        }
 
-            alert("Signed in successfully!");
-            // Redirect to cart or homepage
-            window.location.href = "cart.html";
+        // Alternative form submission handler
+        signinForm.addEventListener('submit', function(e) {
+            console.log('Form submit event triggered');
+            
+            // Let the onsubmit handler do the validation
+            // If validation passes, the form will submit normally
         });
     </script>
 </body>
