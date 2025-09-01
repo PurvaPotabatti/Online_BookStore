@@ -9,11 +9,7 @@
 <body>
   <div class="main-container">
     <aside class="sidebar">
-      <div class="sidebar-decoration">
-        <svg preserveAspectRatio="none" viewBox="0 0 100 1000">
-          <path d="M 0,0 C 100,200 100,800 0,1000 Z" fill="#C3A6A0"></path>
-        </svg>
-      </div>
+
       <div class="relative-content">
         <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
         <nav class="sidebar-nav">
@@ -46,7 +42,7 @@
               </svg>
               <span>CART</span>
             </a>
-                                                  <a href="signin.html" class="header-button" id="authButton"><span>REGISTER</span></a>
+                                                  <a href="signup.html" class="header-button" id="authButton"><span>SIGN UP</span></a>
                          <a href="signin.html" class="profile-button" id="profileButton">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -206,7 +202,7 @@
      }
      
      .welcome-banner {
-       background: linear-gradient(135deg, #4A2C2A, #6B4E4C);
+       background: linear-gradient(135deg, #024950, #003135);
        color: white;
        padding: 1rem 2rem;
        text-align: center;
@@ -308,16 +304,18 @@
            </svg>
          `;
          profileButton.onclick = function() {
-           alert('Profile: ' + userInfo.name + '\nEmail: ' + userInfo.email);
+           if (confirm('Profile: ' + userInfo.name + '\nEmail: ' + userInfo.email + '\n\nDo you want to sign out?')) {
+             window.location.href = 'logout.php';
+           }
          };
          
          // Show welcome banner for logged-in users
          showWelcomeBanner();
        } else {
          // User is not logged in
-         authButton.innerHTML = `<span>REGISTER</span>`;
+         authButton.innerHTML = `<span>SIGN UP</span>`;
          authButton.onclick = function() {
-           window.location.href = 'signin.html';
+           window.location.href = 'signup.html';
          };
          
          profileButton.innerHTML = `
