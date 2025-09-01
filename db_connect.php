@@ -1,62 +1,50 @@
 <?php
-// Enhanced Database Connection with Error Handling
-$servername = "localhost";
-$username = "root"; // default XAMPP user
-$password = "";     // default empty password in XAMPP
-$dbname = "online_bookstore";
+// Database configuration
+$host = 'localhost';
+$dbname = 'online_bookstore';
+$username = 'root';
+$password = ''; // Try empty first, if it fails, set your MySQL root password
 
 try {
-    // First, try to connect to MySQL server (without selecting database)
-    $conn = mysqli_connect("localhost", "root", "");
+    // Connect to MySQL server (without selecting database first)
+    $pdo = new PDO("mysql:host=$host;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    
-    if ($conn->connect_error) {
-        throw new Exception("Connection to MySQL server failed: " . $conn->connect_error);
-    }
-    
-    // Set charset for security
-    $conn->set_charset("utf8mb4");
-    
     // Check if database exists, if not create it
-    $result = $conn->query("SHOW DATABASES LIKE '$dbname'");
-    if ($result->num_rows == 0) {
-        // Database doesn't exist, create it
-        $sql = "CREATE DATABASE $dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
-        if ($conn->query($sql) === TRUE) {
-            echo "Database '$dbname' created successfully<br>";
-        } else {
-            throw new Exception("Error creating database: " . $conn->error);
-        }
+    $stmt = $pdo->query("SHOW DATABASES LIKE '$dbname'");
+    if ($stmt->rowCount() == 0) {
+        $pdo->exec("CREATE DATABASE $dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+        echo "Database '$dbname' created successfully<br>";
     }
-    
-    // Now select the database
-    if (!$conn->select_db($dbname)) {
-        throw new Exception("Error selecting database: " . $conn->error);
-    }
-    
-    // Test the connection
-    if ($conn->ping()) {
-        // Connection is working
-        $conn->query("SELECT 1"); // Simple test query
+
+    // Connect to the specific database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    if (strpos($e->getMessage(), 'Access denied') !== false) {
+        die("❌ Database connection failed: Access denied.<br>
+             ✅ Check solutions:<br>
+             1. Make sure XAMPP MySQL service is running<br>
+             2. Check if MySQL root user has a password<br>
+             3. If yes, update \$password in db_connect.php<br>
+             4. Try using 'root' as username<br><br>
+             Error: " . $e->getMessage());
     } else {
-        throw new Exception("Database connection lost");
+        die("❌ Connection failed: " . $e->getMessage());
     }
-    
-} catch (Exception $e) {
-    die("Database Error: " . $e->getMessage() . "<br>Please make sure XAMPP is running and MySQL service is started.");
 }
 
-// Function to get connection
-function getConnection() {
-    global $conn;
-    return $conn;
+// Function to get DB connection
+function getDBConnection() {
+    global $pdo;
+    return $pdo;
 }
 
-// Function to close connection
-function closeConnection() {
-    global $conn;
-    if ($conn) {
-        $conn->close();
-    }
+// Function to close DB connection
+function closeDBConnection() {
+    global $pdo;
+    $pdo = null;
 }
 ?>

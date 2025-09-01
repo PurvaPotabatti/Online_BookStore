@@ -9,9 +9,9 @@
 
 /* General Body Styles */
 body {
-    background-color: #F8F9FA;
+    background-color: #FEF7F7;
     font-family: 'Segoe UI', 'Arial', sans-serif;
-    color: #003135;
+    color: #000000;
     margin: 0;
     line-height: 1.6;
     font-size: 14px;
@@ -23,18 +23,18 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar - Modern Futuristic Design */
+/* Sidebar - BOOKWORM Elegant Design */
 .sidebar {
     width: 280px;
-    background: linear-gradient(180deg, #024950 0%, #003135 100%);
+    background: linear-gradient(180deg, #FF8FAB 0%, #F48FB1 100%);
     color: #FFFFFF;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     position: relative;
-    border-right: 2px solid #0FA4AF;
-    box-shadow: 3px 0 20px rgba(0, 49, 53, 0.3);
+    border-right: 2px solid #FF8FAB;
+    box-shadow: 3px 0 20px rgba(255, 143, 171, 0.3);
 }
 
 .sidebar h1 {
@@ -44,7 +44,7 @@ body {
     margin-bottom: 3rem;
     text-align: center;
     letter-spacing: 2px;
-    border-bottom: 2px solid #0FA4AF;
+    border-bottom: 2px solid #FFFFFF;
     padding-bottom: 1rem;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -67,25 +67,35 @@ body {
     transition: all 0.3s ease;
     text-decoration: none;
     color: #FFFFFF;
-    background: rgba(15, 164, 175, 0.1);
-    border: 1px solid rgba(15, 164, 175, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .sidebar-nav a:hover {
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FFFFFF;
+    color: #FF69B4;
     transform: translateX(5px);
-    box-shadow: 0 4px 15px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
     font-weight: 600;
 }
 
 .sidebar-nav a.active {
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FFFFFF;
+    color: #FF69B4;
     font-weight: 600;
-    border-color: #0FA4AF;
+    border-color: #FFFFFF;
+}
+
+.sidebar-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4rem;
+    margin-right: -2rem;
+    z-index: 0;
 }
 
 
@@ -100,15 +110,15 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #F8F9FA;
+    background-color: #FEF7F7;
 }
 
-/* Header - Modern Futuristic Design */
+/* Header - BOOKWORM Design */
 .header {
-    background: linear-gradient(135deg, #024950 0%, #003135 100%);
+    background: #FEF7F7;
     padding: 1.5rem 2rem;
-    border-bottom: 2px solid #0FA4AF;
-    box-shadow: 0 4px 15px rgba(0, 49, 53, 0.2);
+    border-bottom: 1px solid #E5E5E5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-top {
@@ -124,7 +134,7 @@ body {
     gap: 2rem;
     font-weight: 500;
     font-size: 0.9rem;
-    color: #AFDDE5;
+    color: #000000;
 }
 
 .header-nav a {
@@ -138,12 +148,12 @@ body {
 }
 
 .header-nav a:hover {
-    color: #0FA4AF;
-    background-color: rgba(15, 164, 175, 0.1);
+    color: #FF8FAB;
+    background-color: rgba(255, 143, 171, 0.1);
 }
 
 .header-nav a.active {
-    color: #0FA4AF;
+    color: #FF8FAB;
     font-weight: 600;
 }
 
@@ -155,7 +165,7 @@ body {
     transform: translateX(-50%);
     width: 20px;
     height: 2px;
-    background-color: #0FA4AF;
+    background-color: #FF8FAB;
 }
 
 .header-actions {
@@ -168,11 +178,11 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF8FAB;
     padding: 0.5rem 1.25rem;
     border-radius: 8px;
-    color: #0FA4AF;
-    background-color: rgba(15, 164, 175, 0.1);
+    color: #FF8FAB;
+    background-color: rgba(255, 143, 171, 0.1);
     transition: all 0.3s ease;
     text-decoration: none;
     cursor: pointer;
@@ -182,10 +192,10 @@ body {
 }
 
 .header-button:hover {
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FF8FAB;
+    color: #FFFFFF;
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
 }
 
 .header-button svg {
@@ -197,39 +207,39 @@ body {
     padding: 0.5rem;
     border-radius: 50%;
     transition: all 0.3s ease;
-    background-color: rgba(15, 164, 175, 0.1);
-    border: 2px solid #0FA4AF;
+    background-color: rgba(255, 105, 180, 0.1);
+    border: 2px solid #FF69B4;
     cursor: pointer;
     text-decoration: none;
 }
 
 .profile-button:hover {
-    background-color: #0FA4AF;
-    border-color: #0FA4AF;
+    background-color: #FF69B4;
+    border-color: #FF69B4;
     transform: scale(1.05);
 }
 
 .profile-button svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: #0FA4AF;
+    color: #FF69B4;
     transition: color 0.3s ease;
 }
 
 .profile-button:hover svg {
-    color: #003135;
+    color: #FFFFFF;
 }
 
 .sale-banner {
     width: 100%;
     text-align: center;
-    background: linear-gradient(135deg, #964734 0%, #7A3A2A 100%);
+    background: linear-gradient(135deg, #FF8FAB 0%, #F48FB1 100%);
     color: #FFFFFF;
     padding: 0.75rem 0;
     font-family: 'Segoe UI', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(150, 71, 52, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 143, 171, 0.3);
 }
 
 .search-bar {
@@ -242,9 +252,9 @@ body {
     box-sizing: border-box;
     background-color: #FFFFFF;
     border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 49, 53, 0.15);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
     padding: 1rem 3rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #E5E5E5;
     transition: all 0.3s ease;
     font-size: 0.95rem;
     font-family: 'Segoe UI', sans-serif;
@@ -252,16 +262,16 @@ body {
 
 .search-bar input:focus {
     outline: none;
-    border-color: #964734;
+    border-color: #FF8FAB;
     background-color: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(150, 71, 52, 0.1), 0 3px 12px rgba(0, 49, 53, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 143, 171, 0.1), 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
 .search-bar .icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #024950;
+    color: #666666;
     width: 1.25rem;
     height: 1.25rem;
 }
@@ -280,11 +290,149 @@ body {
     padding: 2rem;
 }
 
+/* Hero Section - BOOKWORM Style */
+.hero-section {
+    background: #FEF7F7;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 143, 171, 0.1) 0%, rgba(255, 143, 171, 0.05) 100%);
+    border-radius: 0 50px 50px 0;
+    z-index: 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+    padding-left: 2rem;
+}
+
+.hero-subtitle {
+    font-size: 0.9rem;
+    color: #999999;
+    margin: 0 0 1rem 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 2rem 0;
+    line-height: 1.2;
+}
+
+.hero-button {
+    background: #000000;
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background: #FF8FAB;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 143, 171, 0.3);
+}
+
+.hero-books {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-carousel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.book-slide {
+    width: 120px;
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    transform: scale(0.8);
+    opacity: 0.7;
+}
+
+.book-slide.active {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.book-slide:not(.active) {
+    transform: scale(0.8) rotateY(15deg);
+}
+
+.carousel-book {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-indicators {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E5E5E5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #FF8FAB;
+    transform: scale(1.2);
+}
+
+.indicator:last-child {
+    background: none;
+    width: auto;
+    height: auto;
+    color: #999999;
+    font-size: 0.8rem;
+}
+
 /* Home Page Specific */
 .home-page h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    color: #003135;
+    color: #000000;
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 1px;
@@ -326,14 +474,14 @@ body {
     width: 100%;
     padding-top: 56.25%;
     position: relative;
-    background: linear-gradient(135deg, #024950 0%, #003135 100%);
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 49, 53, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
 }
 
 .video-placeholder-icon {
@@ -350,35 +498,35 @@ body {
 .video-placeholder-icon svg {
     width: 4rem;
     height: 4rem;
-    color: #024950;
+    color: #FFFFFF;
     stroke-width: 1;
 }
 
 .tutorial-button {
     padding: 0.75rem 2rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 8px;
-    color: #0FA4AF;
+    color: #FF69B4;
     font-weight: 500;
     transition: all 0.3s ease;
-    background-color: rgba(15, 164, 175, 0.1);
+    background-color: rgba(255, 105, 180, 0.1);
     cursor: pointer;
     font-size: 0.95rem;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .tutorial-button:hover {
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FF69B4;
+    color: #FFFFFF;
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
 }
 
-/* Accordion Item - Modern Futuristic Style */
+/* Accordion Item - BOOKWORM Pink Style */
 .accordion-item {
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 49, 53, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
     background-color: #FFFFFF;
@@ -386,8 +534,8 @@ body {
 }
 
 .accordion-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 49, 53, 0.15);
-    border-color: #964734;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
+    border-color: #FF1493;
 }
 
 .accordion-question {
@@ -397,20 +545,20 @@ body {
     align-items: center;
     padding: 1.5rem;
     text-align: left;
-    background-color: #E8F4F8;
+    background-color: rgba(255, 105, 180, 0.1);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .accordion-question:hover {
-    background-color: #0FA4AF;
+    background-color: #FF69B4;
 }
 
 .accordion-question h3 {
     font-weight: 500;
     font-size: 1.1rem;
-    color: #003135;
+    color: #000000;
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -418,22 +566,22 @@ body {
 .accordion-question svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: #024950;
+    color: #FF69B4;
     transition: transform 0.3s ease;
 }
 
 .accordion-question:hover svg {
-    color: #003135;
+    color: #FFFFFF;
 }
 
 .accordion-answer {
     padding: 1.5rem;
     background-color: #FFFFFF;
-    border-top: 1px solid #E8F4F8;
+    border-top: 1px solid rgba(255, 105, 180, 0.2);
 }
 
 .accordion-answer p {
-    color: #003135;
+    color: #000000;
     margin: 0;
     line-height: 1.6;
     font-family: 'Segoe UI', sans-serif;
@@ -450,10 +598,10 @@ body {
 .filter-link {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 8px;
     text-decoration: none;
-    color: #003135;
+    color: #000000;
     font-weight: 500;
     transition: all 0.3s ease;
     background-color: #FFFFFF;
@@ -461,18 +609,18 @@ body {
 }
 
 .filter-link:hover {
-    background-color: #0FA4AF;
-    color: #003135;
-    border-color: #0FA4AF;
+    background-color: #FF69B4;
+    color: #FFFFFF;
+    border-color: #FF69B4;
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
 }
 
 .filter-link.active {
-    background-color: #0FA4AF;
-    color: #003135;
-    border-color: #0FA4AF;
-    box-shadow: 0 4px 15px rgba(15, 164, 175, 0.3);
+    background-color: #FF69B4;
+    color: #FFFFFF;
+    border-color: #FF69B4;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
 .book-grid {
@@ -484,15 +632,15 @@ body {
 .no-books-message {
     grid-column: 1 / -1;
     text-align: center;
-    color: #024950;
+    color: #FF69B4;
     font-size: 1.1rem;
     padding: 3rem 1rem;
     background-color: #FFFFFF;
     border-radius: 12px;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
 }
 
-/* Book Card - Modern Futuristic Design */
+/* Book Card - BOOKWORM Design */
 .book-card {
     display: flex;
     flex-direction: column;
@@ -501,9 +649,9 @@ body {
     background-color: #FFFFFF;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 49, 53, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #E5E5E5;
     position: relative;
     overflow: hidden;
 }
@@ -515,7 +663,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%);
+    background: linear-gradient(135deg, #FF8FAB 0%, #F48FB1 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -526,8 +674,8 @@ body {
 
 .book-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 49, 53, 0.2);
-    border-color: #964734;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: #FF8FAB;
 }
 
 .book-image-wrapper {
@@ -536,9 +684,9 @@ body {
     margin-bottom: 1rem;
     overflow: hidden;
     border-radius: 8px;
-    background-color: #E8F4F8;
+    background-color: #F5F5F5;
     position: relative;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #E5E5E5;
 }
 
 .book-image {
@@ -555,7 +703,7 @@ body {
 .book-card h3 {
     font-weight: 600;
     font-size: 1.1rem;
-    color: #003135;
+    color: #000000;
     margin: 0 0 0.5rem 0;
     line-height: 1.3;
     font-family: 'Segoe UI', sans-serif;
@@ -563,7 +711,7 @@ body {
 
 .book-card p {
     font-size: 0.9rem;
-    color: #024950;
+    color: #666666;
     margin: 0 0 1rem 0;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -571,7 +719,7 @@ body {
 .book-price {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #964734;
+    color: #FF8FAB;
     margin-bottom: 1rem;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -579,8 +727,8 @@ body {
 .add-to-cart-btn {
     width: 100%;
     padding: 0.75rem;
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FF8FAB;
+    color: #FFFFFF;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -591,12 +739,12 @@ body {
 }
 
 .add-to-cart-btn:hover {
-    background-color: #964734;
+    background-color: #F48FB1;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(150, 71, 52, 0.4);
+    box-shadow: 0 6px 20px rgba(244, 143, 177, 0.4);
 }
 
-/* Auth Page - Modern Futuristic Style */
+/* Auth Page - BOOKWORM Pink Style */
 .auth-page-container {
     position: relative;
     min-height: 100vh;
@@ -605,7 +753,7 @@ body {
     justify-content: center;
     padding: 1rem;
     overflow: hidden;
-    background: linear-gradient(135deg, #024950 0%, #003135 100%);
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
 }
 
 .auth-bg-image {
@@ -626,7 +774,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 49, 53, 0.4);
+    background: rgba(255, 105, 180, 0.4);
 }
 
 .auth-form-container {
@@ -635,9 +783,9 @@ body {
     max-width: 450px;
     background-color: #FFFFFF;
     border-radius: 16px;
-    box-shadow: 0 25px 50px rgba(0, 49, 53, 0.3);
+    box-shadow: 0 25px 50px rgba(255, 105, 180, 0.3);
     overflow: hidden;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
 }
 
 .auth-form-decoration {
@@ -647,7 +795,7 @@ body {
     z-index: 0;
     width: 200%;
     height: 200%;
-    background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%);
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
     border-radius: 9999px;
     transform: translateX(-25%) translateY(-75%);
     opacity: 0.1;
@@ -687,7 +835,7 @@ body {
 .input-field-wrapper .icon {
     position: absolute;
     left: 1rem;
-    color: #024950;
+    color: #FF69B4;
     font-size: 1.1rem;
 }
 
@@ -695,29 +843,29 @@ body {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
     background-color: #FFFFFF;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 10px;
     transition: all 0.3s ease;
     font-size: 1rem;
-    color: #003135;
+    color: #000000;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .input-field:focus {
     outline: none;
-    border-color: #964734;
+    border-color: #FF1493;
     background-color: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(150, 71, 52, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
 }
 
 .input-field::placeholder {
-    color: #024950;
+    color: #FF69B4;
     font-size: 0.95rem;
 }
 
 .auth-submit-btn {
     width: 100%;
-    background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%);
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
     color: #FFFFFF;
     padding: 1rem;
     border-radius: 10px;
@@ -733,7 +881,7 @@ body {
 
 .auth-submit-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
 }
 
 .auth-options {
@@ -746,14 +894,14 @@ body {
 
 .auth-options a {
     font-weight: 500;
-    color: #0FA4AF;
+    color: #FF69B4;
     text-decoration: none;
     transition: color 0.3s ease;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .auth-options a:hover {
-    color: #964734;
+    color: #FF1493;
     text-decoration: underline;
 }
 
@@ -767,12 +915,12 @@ body {
 .auth-toggle p {
     margin: 0;
     font-size: 0.9rem;
-    color: #024950;
+    color: #FF69B4;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .auth-toggle a {
-    color: #0FA4AF;
+    color: #FF69B4;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -780,7 +928,7 @@ body {
 }
 
 .auth-toggle a:hover {
-    color: #964734;
+    color: #FF1493;
     text-decoration: underline;
 }
 
@@ -788,7 +936,7 @@ body {
 .about-page h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    color: #003135;
+    color: #000000;
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 1px;
@@ -806,7 +954,7 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     font-size: 1.1rem;
-    color: #003135;
+    color: #000000;
     line-height: 1.7;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -814,12 +962,12 @@ body {
 .about-page .explore-button {
     margin-top: 2.5rem;
     padding: 1rem 2.5rem;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 10px;
-    color: #0FA4AF;
+    color: #FF69B4;
     font-weight: 500;
     transition: all 0.3s ease;
-    background-color: rgba(15, 164, 175, 0.1);
+    background-color: rgba(255, 105, 180, 0.1);
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -828,10 +976,10 @@ body {
 }
 
 .about-page .explore-button:hover {
-    background-color: #0FA4AF;
-    color: #003135;
+    background-color: #FF69B4;
+    color: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
 }
 
 /* Contact Page */
@@ -851,8 +999,8 @@ body {
     background-color: #FFFFFF;
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 49, 53, 0.15);
-    border: 2px solid #0FA4AF;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+    border: 2px solid #FF69B4;
     flex: 1;
 }
 
@@ -867,19 +1015,19 @@ body {
     box-sizing: border-box;
     padding: 1rem;
     background-color: #FFFFFF;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
     border-radius: 10px;
     transition: all 0.3s ease;
     font-size: 1rem;
-    color: #003135;
+    color: #000000;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
     outline: none;
-    border-color: #964734;
+    border-color: #FF1493;
     background-color: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(150, 71, 52, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
 }
 
 .contact-form textarea {
@@ -890,7 +1038,7 @@ body {
 .contact-submit-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%);
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
     color: #FFFFFF;
     font-weight: 600;
     border-radius: 10px;
@@ -905,16 +1053,16 @@ body {
 
 .contact-submit-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(15, 164, 175, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
 }
 
 .contact-map-container {
     flex: 1;
     height: 24rem;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 49, 53, 0.15);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
     overflow: hidden;
-    border: 2px solid #0FA4AF;
+    border: 2px solid #FF69B4;
 }
 
 @media (min-width: 1024px) {
@@ -933,7 +1081,7 @@ body {
 .faq-page h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    color: #003135;
+    color: #000000;
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 1px;
@@ -952,21 +1100,21 @@ body {
     background-color: #FFFFFF;
     padding: 2rem;
     border-radius: 16px;
-    border: 2px solid #0FA4AF;
-    box-shadow: 0 6px 20px rgba(0, 49, 53, 0.1);
+    border: 2px solid #FF69B4;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.1);
     transition: all 0.3s ease;
 }
 
 .faq-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 49, 53, 0.15);
-    border-color: #964734;
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.15);
+    border-color: #FF1493;
 }
 
 .faq-item h3 {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #003135;
+    color: #000000;
     margin-top: 0;
     margin-bottom: 1rem;
     font-family: 'Segoe UI', sans-serif;
@@ -974,7 +1122,7 @@ body {
 
 .faq-item p {
     font-size: 1rem;
-    color: #003135;
+    color: #000000;
     line-height: 1.6;
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -983,7 +1131,7 @@ body {
 /* Book Rating */
 .book-rating {
     font-size: 1.1rem;
-    color: #964734;
+    color: #FF69B4;
     margin: 0.5rem 0;
 }
 
@@ -1019,6 +1167,50 @@ body {
     .auth-form-content {
         padding: 2rem;
     }
+    
+    /* Hero Section Responsive */
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-text {
+        padding-left: 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .book-carousel {
+        gap: 0.5rem;
+    }
+    
+    .book-slide {
+        width: 80px;
+        height: 110px;
+    }
+    
+    .hero-section::before {
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .book-slide {
+        width: 60px;
+        height: 80px;
+    }
+    
+    .book-carousel {
+        gap: 0.25rem;
+    }
 }
 
 /* Smooth scrolling */
@@ -1032,14 +1224,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: #E8F4F8;
+    background: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0FA4AF;
+    background: #FF8FAB;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #964734;
+    background: #F48FB1;
 }
