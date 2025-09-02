@@ -9,11 +9,10 @@
 <body>
   <div class="main-container">
     <aside class="sidebar">
-
       <div class="relative-content">
         <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
         <nav class="sidebar-nav">
-          <a href="category-fiction.html">Fiction</a>
+          <a href="category-fiction.html" class="hehe">Fiction</a>
           <a href="non-fiction.html">Non-Fiction</a>
           <a href="children.html">Children</a>
           <a href="comics.html">Comics</a>
@@ -42,8 +41,8 @@
               </svg>
               <span>CART</span>
             </a>
-                                                  <a href="signup.html" class="header-button" id="authButton"><span>SIGN UP</span></a>
-                         <a href="signin.html" class="profile-button" id="profileButton">
+            <a href="signup.html" class="header-button" id="authButton"><span>SIGN UP</span></a>
+            <a href="signin.html" class="profile-button" id="profileButton">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
@@ -51,25 +50,26 @@
             </a>
           </div>
         </div>
-                 <div class="sale-banner">
-   <marquee behavior="scroll" direction="left" scrollamount="6">
-     🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
-   </marquee>
- </div>
-         
-         <div id="welcomeBanner" class="welcome-banner" style="display: none;">
-           <div class="welcome-content">
-             <span>👋 Welcome back! We're glad to see you again.</span>
-             <button onclick="hideWelcomeBanner()" class="welcome-close">×</button>
-           </div>
-         </div>
- 
+
+        <div class="sale-banner">
+          <marquee behavior="scroll" direction="left" scrollamount="6">
+            🎉 Mega Book Bonanza! Flat 50% OFF on Fiction, Comics, Manga & More! Limited Time Only — Shop Now at Bookly! 🛍️📚
+          </marquee>
+        </div>
+        
+        <div id="welcomeBanner" class="welcome-banner" style="display: none;">
+          <div class="welcome-content">
+            <span>👋 Welcome back! We're glad to see you again.</span>
+            <button onclick="hideWelcomeBanner()" class="welcome-close">×</button>
+          </div>
+        </div>
+
         <div class="search-bar">
           <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" placeholder="search" />
+          <input type="text" id="searchInput" placeholder="Search books..." />
           <svg class="icon filter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
           </svg>
@@ -77,81 +77,8 @@
       </header>
 
       <div class="page-content">
-
-
-        <div class="book-grid">
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpicture.png" alt="The Midnight Library" class="book-image" />
-            </div>
-            <h3>The Midnight Library</h3>
-            <p>₹ 450</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('The Midnight Library', 450, 'indexpicture.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic2.png" alt="The Kite Runner" class="book-image" />
-            </div>
-            <h3>The Kite Runner</h3>
-            <p>₹ 500</p>
-            <div class="book-rating">⭐⭐☆☆☆</div> <!-- 2 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('The Kite Runner', 500, 'indexpic2.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic3.png" alt="Sapiens" class="book-image" />
-            </div>
-            <h3>Sapiens</h3>
-            <p>₹ 650</p>
-            <div class="book-rating">⭐☆☆☆☆</div> <!-- 1 star -->
-            <button class="add-to-cart-btn" onclick="addToCart('Sapiens', 650, 'indexpic3.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic4.png" alt="Man’s Search for Meaning" class="book-image" />
-            </div>
-            <h3>Man’s Search for Meaning</h3>
-            <p>₹ 400</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 5 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Man\'s Search for Meaning', 400, 'indexpic4.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic5.png" alt="Quiet" class="book-image" />
-            </div>
-            <h3>Quiet</h3>
-            <p>₹ 550</p>
-            <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 4 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Quiet', 550, 'indexpic5.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic6.png" alt="The Innovators" class="book-image" />
-            </div>
-            <h3>The Innovators</h3>
-            <p>₹ 700</p>
-            <div class="book-rating">⭐⭐⭐⭐☆</div> <!-- 4 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('The Innovators', 700, 'indexpic6.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic8.png" alt="Atomic Habits" class="book-image" />
-            </div>
-            <h3>Atomic Habits</h3>
-            <p>₹ 500</p>
-             <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 4 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Atomic Habits', 500, 'indexpic8.png')">Add to Cart</button>
-          </div>
-          <div class="book-card">
-            <div class="book-image-wrapper">
-              <img src="images/indexpic9.png" alt="Thinking, Fast and Slow" class="book-image" />
-            </div>
-            <h3>Thinking, Fast and Slow</h3>
-            <p>₹ 600</p>
-             <div class="book-rating">⭐⭐⭐⭐⭐</div> <!-- 4 stars -->
-            <button class="add-to-cart-btn" onclick="addToCart('Thinking, Fast and Slow', 600, 'indexpic9.png')">Add to Cart</button>
-          </div>
+        <div class="book-grid" id="bookGrid">
+          <!-- Book cards will be loaded dynamically -->
         </div>
       </div>
     </main>
@@ -170,13 +97,11 @@
       margin-top: 1rem;
       width: 100%;
     }
-    
     .add-to-cart-btn:hover {
       background: #FF1493;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
     }
-    
     .cart-notification {
       position: fixed;
       top: 20px;
@@ -190,163 +115,139 @@
       transform: translateX(400px);
       transition: transform 0.3s ease;
     }
-    
-         .cart-notification.show {
-       transform: translateX(0);
-     }
-     
-     .welcome-banner {
-       background: linear-gradient(135deg, #FF69B4, #FF1493);
-       color: white;
-       padding: 1rem 2rem;
-       text-align: center;
-       position: relative;
-       box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
-     }
-     
-     .welcome-content {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       gap: 1rem;
-       font-size: 1.1rem;
-       font-weight: 500;
-     }
-     
-     .welcome-close {
-       background: none;
-       border: none;
-       color: white;
-       font-size: 1.5rem;
-       cursor: pointer;
-       padding: 0;
-       width: 24px;
-       height: 24px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       border-radius: 50%;
-       transition: background 0.3s ease;
-     }
-     
-     .welcome-close:hover {
-       background: rgba(255,255,255,0.2);
-     }
+    .cart-notification.show {
+      transform: translateX(0);
+    }
+    .welcome-banner {
+      background: linear-gradient(135deg, #FF69B4, #FF1493);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
+    }
+    .welcome-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .welcome-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+    .welcome-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
   </style>
 
   <script>
-         function addToCart(title, price, image) {
-       // Create notification
-       const notification = document.createElement('div');
-       notification.className = 'cart-notification';
-       notification.innerHTML = `
-         <div style="display: flex; align-items: center; gap: 0.5rem;">
-           <span>✅</span>
-           <span>${title} added to cart!</span>
-         </div>
-       `;
-       
-       document.body.appendChild(notification);
-       
-       // Show notification
-       setTimeout(() => {
-         notification.classList.add('show');
-       }, 100);
-       
-       // Hide notification after 3 seconds
-       setTimeout(() => {
-         notification.classList.remove('show');
-         setTimeout(() => {
-           document.body.removeChild(notification);
-         }, 300);
-       }, 3000);
-       
-       // Store in localStorage (for cart persistence)
-       const cartItem = {
-         id: Date.now(),
-         title: title,
-         price: price,
-         image: image,
-         quantity: 1
-       };
-       
-       let cart = JSON.parse(localStorage.getItem('booklyCart') || '[]');
-       cart.push(cartItem);
-       localStorage.setItem('booklyCart', JSON.stringify(cart));
-     }
+    // Book list for home page
+    const books = [
+      { title: "The Midnight Library", price: 450, image: "indexpicture.png", rating: 5 },
+      { title: "The Kite Runner", price: 500, image: "indexpic2.png", rating: 2 },
+      { title: "Sapiens", price: 650, image: "indexpic3.png", rating: 1 },
+      { title: "Man’s Search for Meaning", price: 400, image: "indexpic4.png", rating: 5 },
+      { title: "Quiet", price: 550, image: "indexpic5.png", rating: 4 },
+      { title: "The Innovators", price: 700, image: "indexpic6.png", rating: 4 },
+      { title: "Atomic Habits", price: 500, image: "indexpic8.png", rating: 5 },
+      { title: "Thinking, Fast and Slow", price: 600, image: "indexpic9.png", rating: 5 },
+    ];
 
-     // Check if user is logged in and update UI
-     function checkUserLoginStatus() {
-       const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-       const authButton = document.getElementById('authButton');
-       const profileButton = document.getElementById('profileButton');
-       
-       if (userInfo.isLoggedIn) {
-         // User is logged in
-         authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
-         authButton.onclick = function() {
-           if (confirm('Do you want to sign out?')) {
-             localStorage.removeItem('booklyUser');
-             location.reload();
-           }
-         };
-         
-         profileButton.innerHTML = `
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-             <circle cx="12" cy="7" r="4"></circle>
-           </svg>
-         `;
-         profileButton.onclick = function() {
-           if (confirm('Profile: ' + userInfo.name + '\nEmail: ' + userInfo.email + '\n\nDo you want to sign out?')) {
-             window.location.href = 'logout.php';
-           }
-         };
-         
-         // Show welcome banner for logged-in users
-         showWelcomeBanner();
-       } else {
-         // User is not logged in
-         authButton.innerHTML = `<span>SIGN UP</span>`;
-         authButton.onclick = function() {
-           window.location.href = 'signup.html';
-         };
-         
-         profileButton.innerHTML = `
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-             <circle cx="12" cy="7" r="4"></circle>
-           </svg>
-         `;
-         profileButton.onclick = function() {
-           window.location.href = 'signin.html';
-         };
-         
-         // Hide welcome banner for non-logged-in users
-         hideWelcomeBanner();
-       }
-     }
+    // Render books
+    function renderBooks(filter = "") {
+      const grid = document.getElementById("bookGrid");
+      grid.innerHTML = "";
+      books
+        .filter(book => book.title.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(book => {
+          const card = document.createElement("div");
+          card.className = "book-card";
+          card.innerHTML = `
+            <div class="book-image-wrapper">
+              <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+            </div>
+            <h3>${book.title}</h3>
+            <p>₹ ${book.price}</p>
+            <div class="book-rating">${"⭐".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>
+            <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+          `;
+          grid.appendChild(card);
+        });
+    }
 
-     // Show welcome banner
-     function showWelcomeBanner() {
-       const welcomeBanner = document.getElementById('welcomeBanner');
-       if (welcomeBanner) {
-         welcomeBanner.style.display = 'block';
-       }
-     }
+    // Add to cart
+    function addToCart(title, price, image) {
+      const notification = document.createElement("div");
+      notification.className = "cart-notification";
+      notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span>✅</span>
+          <span>${title} added to cart!</span>
+        </div>
+      `;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.classList.add("show"), 100);
+      setTimeout(() => {
+        notification.classList.remove("show");
+        setTimeout(() => document.body.removeChild(notification), 300);
+      }, 3000);
 
-     // Hide welcome banner
-     function hideWelcomeBanner() {
-       const welcomeBanner = document.getElementById('welcomeBanner');
-       if (welcomeBanner) {
-         welcomeBanner.style.display = 'none';
-       }
-     }
+      const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+      let cart = JSON.parse(localStorage.getItem("booklyCart") || "[]");
+      cart.push(cartItem);
+      localStorage.setItem("booklyCart", JSON.stringify(cart));
+    }
 
-     // Initialize user login status when page loads
-     document.addEventListener('DOMContentLoaded', function() {
-       checkUserLoginStatus();
-     });
+    // User login check
+    function checkUserLoginStatus() {
+      const userInfo = JSON.parse(localStorage.getItem("booklyUser") || "{}");
+      const authButton = document.getElementById("authButton");
+      const profileButton = document.getElementById("profileButton");
+      if (userInfo.is_logged_in) {
+        authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+        authButton.onclick = () => {
+          if (confirm("Do you want to sign out?")) {
+            localStorage.removeItem("booklyUser");
+            location.reload();
+          }
+        };
+        profileButton.onclick = () => alert("Profile: " + userInfo.name + "\nEmail: " + userInfo.email);
+        showWelcomeBanner();
+      } else {
+        authButton.innerHTML = `<span>SIGN UP</span>`;
+        authButton.onclick = () => (window.location.href = "signup.html");
+        profileButton.onclick = () => (window.location.href = "signin.html");
+        hideWelcomeBanner();
+      }
+    }
+
+    function showWelcomeBanner() {
+      document.getElementById("welcomeBanner").style.display = "block";
+    }
+    function hideWelcomeBanner() {
+      document.getElementById("welcomeBanner").style.display = "none";
+    }
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", () => {
+      checkUserLoginStatus();
+      renderBooks();
+      document.getElementById("searchInput").addEventListener("input", e => renderBooks(e.target.value));
+    });
   </script>
 </body>
 </html>

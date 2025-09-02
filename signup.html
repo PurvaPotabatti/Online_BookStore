@@ -43,6 +43,12 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(15, 164, 175, 0.4);
     }
+
+    /* Show password option */
+    .show-password {
+      margin: 0.5rem 0 1rem 0;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -81,9 +87,14 @@
           <!-- Confirm Password -->
           <div class="input-field-wrapper">
             <span class="icon">🔒</span>
-            <input type="password" name="confirmPassword" id="confirmPassword" class="input-field" placeholder="Confirm Password" required>
+            <input type="password" name="confirm_password" id="confirmPassword" class="input-field" placeholder="Confirm Password" required>
           </div>
           <div id="confirmPasswordError" class="error-message"></div>
+
+          <!-- ✅ Show password toggle -->
+          <div class="show-password">
+            <label><input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Passwords</label>
+          </div>
 
           <!-- Options -->
           <div class="auth-options">
@@ -104,58 +115,107 @@
   </div>
 
   <script>
-    const form = document.getElementById('signupForm');
+  const form = document.getElementById('signupForm');
 
-    form.addEventListener('submit', function(event) {
-      let valid = true;
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ✅ stop default submit
 
-      // Clear previous errors
-      document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
-      document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
+    let valid = true;
 
-      const name = form.username.value.trim();
-      const email = form.email.value.trim();
-      const password = form.password.value.trim();
-      const confirmPassword = form.confirmPassword.value.trim();
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+    document.querySelectorAll('.input-field').forEach(e => e.classList.remove('input-error'));
 
-      // Name validation
-      if (name === '') {
-        document.getElementById('nameError').textContent = 'Name is required.';
-        form.username.classList.add('input-error');
-        valid = false;
+    const name = form.username.value.trim();
+    const email = form.email.value.trim();
+    const password = form.password.value.trim();
+    const confirmPassword = form.confirm_password.value.trim();
+
+    // Name validation
+    if (name === '') {
+      document.getElementById('nameError').textContent = 'Name is required.';
+      form.username.classList.add('input-error');
+      valid = false;
+    }
+
+    // Email validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (email === '') {
+      document.getElementById('emailError').textContent = 'Email is required.';
+      form.email.classList.add('input-error');
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      document.getElementById('emailError').textContent = 'Enter a valid email address.';
+      form.email.classList.add('input-error');
+      valid = false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+      document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+      form.password.classList.add('input-error');
+      valid = false;
+    }
+
+    // Confirm Password validation
+    if (confirmPassword !== password) {
+      document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+      form.confirm_password.classList.add('input-error');
+      valid = false;
+    }
+
+    // ✅ Stop submission if invalid
+    if (!valid) return;
+
+    // ✅ AJAX submit to signup.php
+    const formData = new FormData(form);
+
+    fetch("signup.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("✅ " + data.message);
+
+        // ✅ Save user to localStorage for index.html
+        const user = {
+          isLoggedIn: true,
+          name: name,
+          email: email
+        };
+        localStorage.setItem("booklyUser", JSON.stringify(user));
+
+        // ✅ Redirect to home (index.html) instead of signin
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1000);
+      } else {
+        alert("❌ " + data.errors.join("\n"));
       }
-
-      // Email validation
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-      if (email === '') {
-        document.getElementById('emailError').textContent = 'Email is required.';
-        form.email.classList.add('input-error');
-        valid = false;
-      } else if (!emailPattern.test(email)) {
-        document.getElementById('emailError').textContent = 'Enter a valid email address.';
-        form.email.classList.add('input-error');
-        valid = false;
-      }
-
-      // Password validation
-      if (password.length < 9) {
-        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
-        form.password.classList.add('input-error');
-        valid = false;
-      }
-
-      // Confirm Password validation
-      if (confirmPassword !== password) {
-        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
-        form.confirmPassword.classList.add('input-error');
-        valid = false;
-      }
-
-      // ✅ If invalid, stop submission
-      if (!valid) {
-        event.preventDefault();
-      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Something went wrong!");
     });
-  </script>
+  });
+
+  // ✅ Show/Hide Password function
+  function togglePassword() {
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirmPassword');
+    const showPasswordCheckbox = document.getElementById('showPassword');
+
+    if (showPasswordCheckbox.checked) {
+      passwordField.type = "text";
+      confirmPasswordField.type = "text";
+    } else {
+      passwordField.type = "password";
+      confirmPasswordField.type = "password";
+    }
+  }
+</script>
+
 </body>
 </html>

@@ -34,7 +34,7 @@
         }
         .auth-form-decoration {
             transform: translateX(-80%) translateY(-75%) !important;
-            background: linear-gradient(135deg, #0FA4AF 0%, #964734 100%) !important;
+            background: linear-gradient(135deg, #0FA4AF 0%, #FF1493 100%) !important;
         }
         .auth-submit-btn {
             background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
@@ -52,6 +52,11 @@
         }
         .auth-toggle a {
             color: #0FA4AF;
+        }
+        /* 🔑 Show password checkbox styling */
+        .show-password {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -82,8 +87,13 @@
                     </div>
                     <div id="passwordError" class="error-message"></div>
 
+                    <!-- 🔑 Show Password Option -->
+                    <div class="show-password">
+                        <label><input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password</label>
+                    </div>
+
                     <div class="auth-options">
-                        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+                      
                         <a href="#">Forgot password?</a>
                     </div>
 
@@ -100,6 +110,12 @@
     <script>
         const signinForm = document.getElementById('signinForm');
         const successMessage = document.getElementById('successMessage');
+
+        // ✅ Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        }
 
         // Check if user is coming from signup (check URL parameters)
         function checkSignupSuccess() {
@@ -169,9 +185,6 @@
         // Alternative form submission handler
         signinForm.addEventListener('submit', function(e) {
             console.log('Form submit event triggered');
-            
-            // Let the onsubmit handler do the validation
-            // If validation passes, the form will submit normally
         });
     </script>
 </body>
