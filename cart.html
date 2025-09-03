@@ -46,7 +46,6 @@
 <body>
 <div class="main-container">
     <aside class="sidebar">
-        
         <div class="relative-content">
             <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
             <nav class="sidebar-nav">
@@ -184,7 +183,7 @@
 
     function checkout() {
         const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-        if (!userInfo.isLoggedIn) {
+        if (!userInfo.isLoggedIn) {  // ✅ updated to isLoggedIn
             document.getElementById('checkoutSection').style.display = 'none';
             document.getElementById('loginRequiredSection').style.display = 'block';
             return;
@@ -198,7 +197,7 @@
         const loginRequiredSection = document.getElementById('loginRequiredSection');
         const guestUserNotice = document.getElementById('guestUserNotice');
 
-        if (!userInfo.isLoggedIn) {
+        if (!userInfo.isLoggedIn) { // ✅ updated to isLoggedIn
             checkoutSection.style.display = 'none';
             loginRequiredSection.style.display = 'block';
             guestUserNotice.style.display = 'block';
@@ -212,7 +211,7 @@
     function updateHeaderUser() {
         const userDisplay = document.getElementById('userDisplay');
         const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
-        if (userInfo.isLoggedIn && userInfo.name) {
+        if (userInfo.isLoggedIn && userInfo.name) { // ✅ updated to isLoggedIn
             userDisplay.innerHTML = `<span>${userInfo.name}</span>`;
             userDisplay.href = "#"; // Optional: link to profile page
         } else {

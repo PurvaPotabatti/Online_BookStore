@@ -213,27 +213,62 @@
     }
 
     // User login check
-    function checkUserLoginStatus() {
-      const userInfo = JSON.parse(localStorage.getItem("booklyUser") || "{}");
-      const authButton = document.getElementById("authButton");
-      const profileButton = document.getElementById("profileButton");
-      if (userInfo.is_logged_in) {
-        authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
-        authButton.onclick = () => {
-          if (confirm("Do you want to sign out?")) {
-            localStorage.removeItem("booklyUser");
-            location.reload();
-          }
-        };
-        profileButton.onclick = () => alert("Profile: " + userInfo.name + "\nEmail: " + userInfo.email);
-        showWelcomeBanner();
-      } else {
-        authButton.innerHTML = `<span>SIGN UP</span>`;
-        authButton.onclick = () => (window.location.href = "signup.html");
-        profileButton.onclick = () => (window.location.href = "signin.html");
-        hideWelcomeBanner();
+   <!-- Inside <script> section, only update these parts -->
+
+// User login check
+function checkUserLoginStatus() {
+  const userInfo = JSON.parse(localStorage.getItem("booklyUser") || "{}");
+  const authButton = document.getElementById("authButton");
+  const profileButton = document.getElementById("profileButton");
+  if (userInfo.isLoggedIn) {  // ✅ changed is_logged_in → isLoggedIn
+    authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+    authButton.onclick = () => {
+      if (confirm("Do you want to sign out?")) {
+        localStorage.removeItem("booklyUser");
+        location.reload();
       }
-    }
+    };
+    profileButton.onclick = () => alert("Profile: " + userInfo.name + "\nEmail: " + userInfo.email);
+    showWelcomeBanner();
+  } else {
+    authButton.innerHTML = `<span>SIGN UP</span>`;
+    authButton.onclick = () => (window.location.href = "signup.html");
+    profileButton.onclick = () => (window.location.href = "signin.html");
+    hideWelcomeBanner();
+  }
+}
+
+// Add to cart (optional improvement: merge same items)
+function addToCart(title, price, image) {
+  const notification = document.createElement("div");
+  notification.className = "cart-notification";
+  notification.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span>✅</span>
+      <span>${title} added to cart!</span>
+    </div>
+  `;
+  document.body.appendChild(notification);
+  setTimeout(() => notification.classList.add("show"), 100);
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => document.body.removeChild(notification), 300);
+  }, 3000);
+
+  let cart = JSON.parse(localStorage.getItem("booklyCart") || "[]");
+
+  // Check if item already exists
+  const existingItem = cart.find(item => item.title === title);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    const cartItem = { id: Date.now(), title, price, image, quantity: 1 };
+    cart.push(cartItem);
+  }
+
+  localStorage.setItem("booklyCart", JSON.stringify(cart));
+}
+
 
     function showWelcomeBanner() {
       document.getElementById("welcomeBanner").style.display = "block";
