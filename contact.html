@@ -4,112 +4,90 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bookly - Contact </title>
+    <title>Bookly - Contact</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Contact Page Styling */
+      .contact-page {
+        padding: 2rem;
+        max-width: 1100px;
+        margin: auto;
+      }
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+      .contact-form {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-form label {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #FF69B4;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255,105,180,0.2);
+      }
+      .contact-form button {
+        background: #FF69B4;
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .contact-form button:hover {
+        background: #FF1493;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255,20,147,0.3);
+      }
+      .map-section {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .map-section h3 {
+        margin-bottom: 1rem;
+      }
+      .map-section iframe {
+        width: 100%;
+        height: 350px;
+        border: none;
+        border-radius: 8px;
+      }
+      @media (max-width: 768px) {
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
-  <style>
-    /* Existing styles... */
-    .add-to-cart-btn {
-      background: #FF69B4;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
-      width: 100%;
-    }
-    .add-to-cart-btn:hover {
-      background: #FF1493;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
-    }
-    .cart-notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #FF69B4;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
-      z-index: 1000;
-      transform: translateX(400px);
-      transition: transform 0.3s ease;
-    }
-    .cart-notification.show {
-      transform: translateX(0);
-    }
-    .welcome-banner {
-      background: linear-gradient(135deg, #FF69B4, #FF1493);
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
-    }
-    .welcome-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    .welcome-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: background 0.3s ease;
-    }
-    .welcome-close:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* Tooltip Styles */
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 250px;
-      background-color: #333;
-      color: #fff;
-      text-align: left;
-      padding: 8px 12px;
-      border-radius: 6px;
-      position: absolute;
-      z-index: 99;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
   <body>
-
     <div class="main-container">
-      
       <!-- Sidebar -->
       <aside class="sidebar">
-        
         <div class="relative-content">
           <a href="index.html" class="logo-link"><h1>Bookly</h1></a>
           <nav class="sidebar-nav">
@@ -124,7 +102,6 @@
 
       <!-- Main Content -->
       <main class="main-content">
-        
         <!-- Header -->
         <header class="header">
           <div class="header-top">
@@ -132,7 +109,7 @@
               <a href="index.html">HOME</a>
               <a href="help.html">HELP</a>
               <a href="about.html">ABOUT US</a>
-              <a href="contact.html">CONTACT</a>
+              <a href="contact.html" class="active">CONTACT</a>
               <a href="faq.html">FAQ'S</a>
             </nav>
             <div class="header-actions">
@@ -157,13 +134,12 @@
 
         <!-- Contact Page Content -->
         <div class="page-content contact-page">
-          <h2 style="margin-bottom: 1rem;">Contact</h2>
+          <h2>Contact Us</h2>
           <p style="margin-bottom: 2rem; font-size: 1.1rem; color: #5a5a5a;">
             We'd love to hear from you! Whether you have a question about our books, need help with your order, or just want to say hello — fill out the form below and we'll get back to you soon.
           </p>
 
           <div class="contact-wrapper">
-            
             <!-- Contact Form -->
             <form class="contact-form" id="feedbackForm">
               <label for="name">👤 Full Name</label>
@@ -183,17 +159,18 @@
 
             <!-- Map -->
             <div class="map-section">
-              <h3 style="margin-bottom: 1rem;">📍 Our Location</h3>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.123456789!2d73.7654321!3d18.6109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b8e123456789%3A0xabcdef123456789!2sWakadama%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1691234567890"
-                width="100%"
-                height="100%"
-                style="border:0; border-radius: 0.5rem;"
-                allowfullscreen=""
-                loading="lazy"
-              ></iframe>
-            </div>
+              <h3>📍 Our Location</h3>
+              <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.672676690277!2d73.84870167496308!3d18.48620368260657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea6b61fc0297%3A0xfbcfc58ae1e78e82!2sPune%20Institute%20Of%20Computer%20Technology%20(PICT)!5e0!3m2!1sen!2sin!4v1725558012345!5m2!1sen!2sin" 
+  width="100%" 
+  height="300" 
+  style="border:0; border-radius: 0.5rem;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 
+            </div>
           </div>
         </div>
       </main>
@@ -202,9 +179,9 @@
     <!-- ✅ FEEDBACK POPUP SCRIPT -->
     <script>
       document.getElementById("feedbackForm").addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent real submission
+        e.preventDefault();
         alert("✅ Feedback sent successfully!");
-        this.reset(); // Optional: Clear form fields
+        this.reset();
       });
     </script>
     <script>
