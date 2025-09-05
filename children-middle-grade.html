@@ -6,6 +6,102 @@
     <title>Bookly - Children: Middle Grade</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+<style>
+    /* Existing styles... */
+    .add-to-cart-btn {
+      background: #FF69B4;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .add-to-cart-btn:hover {
+      background: #FF1493;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+    }
+    .cart-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #FF69B4;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    }
+    .cart-notification.show {
+      transform: translateX(0);
+    }
+    .welcome-banner {
+      background: linear-gradient(135deg, #FF69B4, #FF1493);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
+    }
+    .welcome-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .welcome-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+    .welcome-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Tooltip Styles */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      padding: 8px 12px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 99;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 <body>
     <div class="main-container">
         <aside class="sidebar">

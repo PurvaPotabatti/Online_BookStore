@@ -25,20 +25,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute([$usernameOrEmail, $usernameOrEmail]);
             $user = $stmt->fetch();
 
-            if ($user && password_verify($password, $user['password'])) {
+            if (!$user) {
+                echo "<script>
+                        alert('This email/username is not registered. Please sign up first.');
+                        window.location.href = 'signup.html';
+                      </script>";
+                exit;
+            }
+
+            if ($user && !password_verify($password, $user['password'])) {
+                $errors[] = "Invalid password";
+            }
+
+            if (empty($errors)) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['is_logged_in'] = true;
 
-                // ✅ Show success message & redirect to index.html
+                // ✅ Also persist lightweight info in localStorage for static pages
                 echo "<script>
+                        try {
+                          localStorage.setItem('booklyUser', JSON.stringify({
+                            is_logged_in: true,
+                            name: '" . addslashes($user['username']) . "',
+                            email: '" . addslashes($user['email']) . "'
+                          }));
+                        } catch (e) {}
                         alert('Successfully signed in!');
                         window.location.href = 'index.html';
                       </script>";
                 exit;
-            } else {
-                $errors[] = "Invalid username/email or password";
             }
         } catch (PDOException $e) {
             $errors[] = "Login failed: " . $e->getMessage();

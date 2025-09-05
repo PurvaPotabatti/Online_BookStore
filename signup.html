@@ -181,16 +181,14 @@
 
         // ✅ Save user to localStorage for index.html
         const user = {
-          isLoggedIn: true,
+          is_logged_in: true,
           name: name,
           email: email
         };
         localStorage.setItem("booklyUser", JSON.stringify(user));
 
-        // ✅ Redirect to home (index.html) instead of signin
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1000);
+        // ✅ Redirect to home (index.html)
+        window.location.href = "index.html";
       } else {
         alert("❌ " + data.errors.join("\n"));
       }

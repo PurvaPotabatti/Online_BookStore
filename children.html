@@ -76,8 +76,8 @@
                             </svg>
                             <span>CART</span>
                         </a>
-                        <a href="signin.html" class="header-button"><span>REGISTER</span></a>
-                        <a href="signin.html" class="profile-button">
+                        <a href="signin.html" class="header-button" id="authButton"><span>SIGN IN</span></a>
+                        <a href="signin.html" class="profile-button" id="profileButton">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
@@ -199,12 +199,26 @@
             localStorage.setItem('booklyCart', JSON.stringify(cart));
         }
 
-        // ===== Show logged-in user name instead of REGISTER =====
+        // ===== Header auth state alignment =====
         window.addEventListener('DOMContentLoaded', () => {
-            const user = JSON.parse(localStorage.getItem('booklyUser')); // { name: 'Suhafatima' }
-            if(user) {
-                registerButton.innerHTML = `<span>Welcome, ${user.name}</span>`;
-                registerButton.href = "#"; // Optional: link to profile
+            const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+            const authButton = document.getElementById('authButton');
+            const profileButton = document.getElementById('profileButton');
+            if (userInfo && userInfo.is_logged_in) {
+                authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+                authButton.href = '#';
+                authButton.onclick = (e) => {
+                    e.preventDefault();
+                    if (confirm('Do you want to sign out?')) {
+                        localStorage.removeItem('booklyUser');
+                        location.reload();
+                    }
+                };
+                profileButton.onclick = (e) => { e.preventDefault(); alert(`Profile: ${userInfo.name}\nEmail: ${userInfo.email}`); };
+            } else {
+                authButton.innerHTML = `<span>SIGN IN</span>`;
+                authButton.href = 'signin.html';
+                profileButton.href = 'signin.html';
             }
         });
     </script>

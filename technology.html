@@ -6,6 +6,102 @@
   <title>Bookly - Technology</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+<style>
+    /* Existing styles... */
+    .add-to-cart-btn {
+      background: #FF69B4;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .add-to-cart-btn:hover {
+      background: #FF1493;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+    }
+    .cart-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #FF69B4;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    }
+    .cart-notification.show {
+      transform: translateX(0);
+    }
+    .welcome-banner {
+      background: linear-gradient(135deg, #FF69B4, #FF1493);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
+    }
+    .welcome-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .welcome-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+    .welcome-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Tooltip Styles */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      padding: 8px 12px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 99;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 <body>
   <div class="main-container">
     <aside class="sidebar">
@@ -41,8 +137,8 @@
               </svg>
               <span>CART</span>
             </a>
-            <a href="signin.html" class="header-button"><span>REGISTER</span></a>
-            <a href="signin.html" class="profile-button">
+            <a href="signin.html" class="header-button" id="authButton"><span>SIGN IN</span></a>
+            <a href="signin.html" class="profile-button" id="profileButton">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
@@ -106,14 +202,14 @@
 
   <script>
     const books = [
-      { title: "AI Superpowers", price: 531, image: "techpic1.png", rating: "⭐⭐⭐⭐⭐" },
-      { title: "The Code Book", price: 397, image: "techpic2.png", rating: "⭐⭐⭐☆☆" },
-      { title: "How the Internet Happened", price: 400, image: "techpic3.png", rating: "⭐⭐⭐⭐⭐" },
-      { title: "The Shallows", price: 500, image: "techpic4.png", rating: "⭐⭐☆☆☆" },
-      { title: "Ghost in the Wires", price: 350, image: "techpic5.png", rating: "⭐⭐☆☆☆" },
-      { title: "Superintelligence", price: 450, image: "techpic8.png", rating: "⭐⭐⭐☆☆" },
-      { title: "Clean Code", price: 670, image: "techpic6.png", rating: "⭐⭐⭐☆☆" },
-      { title: "The Singularity is Near", price: 900, image: "techpic7.png", rating: "⭐⭐⭐⭐⭐" }
+      { title: "AI Superpowers", price: 531, image: "techpic1.png"},
+      { title: "The Code Book", price: 397, image: "techpic2.png"},
+      { title: "How the Internet Happened", price: 400, image: "techpic3.png"},
+      { title: "The Shallows", price: 500, image: "techpic4.png"},
+      { title: "Ghost in the Wires", price: 350, image: "techpic5.png"},
+      { title: "Superintelligence", price: 450, image: "techpic8.png"},
+      { title: "Clean Code", price: 670, image: "techpic6.png"},
+      { title: "The Singularity is Near", price: 900, image: "techpic7.png"}
     ];
 
     const bookGrid = document.querySelector(".book-grid");
@@ -133,16 +229,16 @@
           const card = document.createElement("div");
           card.className = "book-card";
           card.innerHTML = `
-            <div class="book-image-wrapper">
-              <img src="images/${book.image}" alt="${book.title}" class="book-image" />
-            </div>
-            <h3>${book.title}</h3>
-            <p>₹ ${book.price}</p>
-            <div class="book-rating">${book.rating}</div>
-            <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
-          `;
+          <div class="book-image-wrapper">
+            <img src="images/${book.image}" alt="${book.title}" class="book-image" />
+          </div>
+          <h3>${book.title}</h3>
+          <p>₹ ${book.price}</p>
+          <button class="add-to-cart-btn" onclick="addToCart('${book.title}', ${book.price}, '${book.image}')">Add to Cart</button>
+  `       ;
           bookGrid.appendChild(card);
-        });
+      });
+
       }
     }
 
@@ -166,6 +262,24 @@
       cart.push(cartItem);
       localStorage.setItem('booklyCart', JSON.stringify(cart));
     }
+  </script>
+  <script>
+    (function(){
+      const authButton = document.getElementById('authButton');
+      const profileButton = document.getElementById('profileButton');
+      if(!authButton) return;
+      const userInfo = JSON.parse(localStorage.getItem('booklyUser') || '{}');
+      if (userInfo && userInfo.is_logged_in) {
+        authButton.innerHTML = `<span>Welcome, ${userInfo.name}</span>`;
+        authButton.href = '#';
+        authButton.onclick = function(e){ e.preventDefault(); if(confirm('Sign out?')){ localStorage.removeItem('booklyUser'); location.reload(); } };
+        if (profileButton) profileButton.onclick = function(e){ e.preventDefault(); alert('Profile: '+userInfo.name+'\nEmail: '+userInfo.email); };
+      } else {
+        authButton.innerHTML = `<span>SIGN IN</span>`;
+        authButton.href = 'signin.html';
+        if (profileButton) profileButton.href = 'signin.html';
+      }
+    })();
   </script>
 </body>
 </html>

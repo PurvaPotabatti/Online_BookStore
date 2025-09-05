@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookly - Payment</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #fff0f6;
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+    .payment-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        width: 360px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        text-align: center;
+    }
+    h2 {
+        color: #FF1493;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+    .summary {
+        text-align: left;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 1px solid #ffc0de;
+        border-radius: 10px;
+        background: #fff0f6;
+    }
+    .summary div {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.6rem 0;
+        font-weight: 500;
+    }
+    .summary div.total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-top: 2px solid #FF69B4;
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+        color: #4A2C2A;
+    }
+    .pay-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #FF1493;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .pay-btn:hover {
+        background: #3a2120;
+    }
+    .payment-icons {
+        margin: 1.5rem 0;
+    }
+    .payment-icons img {
+        height: 40px;
+        margin: 0 8px;
+    }
+</style>
+</head>
+<body>
+<div class="payment-container">
+    <h2>Complete Your Payment</h2>
+
+    <div class="summary">
+        <div><span>Subtotal:</span><span id="subtotal">₹0</span></div>
+        <div><span>Shipping:</span><span id="shipping">₹0</span></div>
+        <div class="total"><span>Total:</span><span id="total">₹0</span></div>
+    </div>
+
+   
+
+    <button class="pay-btn" id="payNow">Pay Securely</button>
+</div>
+
+<audio id="successSound" src="images/payment-success.mp3"></audio>
+
+<script>
+    const paymentData = JSON.parse(localStorage.getItem('booklyPayment') || '{}');
+    document.getElementById('subtotal').textContent = `₹ ${paymentData.subtotal || 0}`;
+    document.getElementById('shipping').textContent = `₹ ${paymentData.shipping || 0}`;
+    document.getElementById('total').textContent = `₹ ${paymentData.total || 0}`;
+
+    document.getElementById('payNow').addEventListener('click', () => {
+        const audio = document.getElementById('successSound');
+        audio.play();
+        alert('✅ Payment Successful via UPI!');
+        localStorage.removeItem('booklyCart');
+        localStorage.removeItem('booklyPayment');
+        window.location.href = 'index.html';
+    });
+</script>
+</body>
+</html>
